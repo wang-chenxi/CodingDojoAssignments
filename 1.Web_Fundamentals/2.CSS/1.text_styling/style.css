@@ -1,0 +1,29 @@
+*{
+    font: size 50px;
+}
+
+h1.main{
+    background-color: black;
+    font-weight: bold;
+    color: white;
+    text-align: left;
+    font-family: cursive;
+}
+
+h1.complete{
+    font-style: italic;
+    color: white;
+    text-align: center;
+    background-color: purple;
+    font-family: sans-serif;
+}
+
+h1.contact{
+    text-decoration: underline;
+    text-align: right;
+    background-color: lightblue;
+    font-family: cursive;
+}
+#cloud{
+    color: lightblue;
+}
