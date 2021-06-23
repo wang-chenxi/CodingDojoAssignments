@@ -1,0 +1,47 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+
+.container{
+    max-width:960px;
+    min-width: 400px;
+    margin:0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.topbar{
+width: 100%;
+height: 100px;
+top:0px;
+background: lightblue;
+z-index: -1;
+}
+
+.profile{
+    height: 100px;
+    width:100px;
+    border-radius: 100%;
+}
+
+.info{
+    position: relative;
+    top:-50px;
+    left:20px;
+    font-family: sans-serif;
+}
+.location, .edit{
+    display: flex;
+    align-items: center;
+    margin: 1em 0em;
+}
+
+#icon{
+    height:1em;
+    margin-right: 5px;
+}
+
+a{
+    font-weight: bold;
+}
