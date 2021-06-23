@@ -1,26 +1,44 @@
-.container{
-    background: red;
-    width: 400px;
-    height: 240px;
+body{
+    background:yellowgreen;
 }
-.starArea{
+.container{
+    background: white;
+    width: 400px;
+    height: 230px;
+}
+.starArea {
     background: blue;
-    width: 45%;
-    height: 50%;
-    color:white;
+    width: 200px;
+    height: 125px;
+    color: white;
     display: inline-block;
+    position: absolute;
+    z-index: 2;
 }
 .stars{
    position: relative;
    text-align: center;
-   padding: 0;
+   padding: 3px;
 }
 .stripe{
     position: relative;
+    z-index: 1;
 }
-.white{
+.red{
     height: 20px;
-    background: white;
-    margin-bottom: 20px;
+    background: red;
+    margin-bottom: 15px;
 vertical-align: top;
+}
+
+.star-row {
+    display: flex;
+    justify-content: space-evenly;
+    margin: -8px;
+}
+.star {
+    display: inline-block;
+}
+.star::before {
+    content: "\2605";
 }
