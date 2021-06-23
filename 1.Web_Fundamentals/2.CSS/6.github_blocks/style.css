@@ -1,0 +1,35 @@
+.container{
+    width:960px;
+    background: lightseagreen;
+}
+.first-row .second-row .third-row{
+    width: 100%;
+    display: flex;
+}
+img{
+width: 200px;
+height: 200px;
+}
+.first-row{
+    background: indianred;
+    margin: 20px;
+    padding: 20px;
+}
+.second-row{
+    background: ivory;
+    margin: 20px;
+    padding: 20px;
+}
+.third-row{
+    background: moccasin;
+    margin: 20px;
+    padding: 20px;
+}
+
+h1{
+    text-align: center;
+    padding-top: 1em;
+    font-size: 4em;
+    font-family: sans-serif;
+    color: white;
+}
