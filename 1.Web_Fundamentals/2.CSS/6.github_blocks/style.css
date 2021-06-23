@@ -4,26 +4,32 @@
 }
 .first-row .second-row .third-row{
     width: 100%;
-    display: flex;
 }
 img{
 width: 200px;
 height: 200px;
+background: white;
 }
 .first-row{
     background: indianred;
     margin: 20px;
     padding: 20px;
+    display: flex;
+    justify-content: space-between;
 }
 .second-row{
     background: ivory;
     margin: 20px;
     padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
 }
 .third-row{
     background: moccasin;
     margin: 20px;
     padding: 20px;
+    display: flex;
+    justify-content: space-between;
 }
 
 h1{
