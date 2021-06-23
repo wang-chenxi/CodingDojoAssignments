@@ -1,0 +1,33 @@
+h1{
+    color: white;
+    font-family: sans-serif;
+    margin: 5px 10px;
+}
+.nav{
+        display: flex;
+        justify-content: space-between;
+        background: darkslategray;
+        align-items: center;
+}
+.nav-links{
+    display: flex;
+    justify-items: end;
+    list-style: none;
+    align-items: center;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+    padding: 0em 1em;
+    font-family: sans-serif;
+}
+
+button{
+        background: lightseagreen;
+        margin: 5px 10px;
+        padding: 5px 15px;
+        box-shadow: 5px 5px black;
+        color: white;
+        border: solid black 2px;
+}
