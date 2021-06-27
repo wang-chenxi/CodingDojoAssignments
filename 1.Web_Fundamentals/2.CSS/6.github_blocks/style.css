@@ -1,6 +1,7 @@
 .container{
-    width:auto;
+    max-width:960px;
     background: lightseagreen;
+    margin: 0 auto;
 }
 .first-row .second-row .third-row{
     width: 100%;
@@ -9,7 +10,7 @@ img{
 width: 200px;
 height: 200px;
 background: white;
-margin: 10px 10px;
+margin: 10px auto;
 }
 .first-row{
     background: indianred;

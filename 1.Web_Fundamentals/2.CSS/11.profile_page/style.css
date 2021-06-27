@@ -149,6 +149,10 @@ gap:3px;
     justify-content: space-between;
 }
 
+#connection .content .connects:nth-last-child(2){
+    border-bottom: gray 3px solid;
+}
+
 .people{
     display: flex;
     gap:5px;

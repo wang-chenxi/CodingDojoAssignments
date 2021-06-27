@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: cursive;
+}
+
+.container{
+    max-width: 960px;
+    margin: 0 auto;
+}
+nav{
+    display: flex;
+    height: 50px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background:#CCCCCC;
+    flex-wrap: wrap;
+}
+
+nav h1{
+    font-size: xx-large;
+min-width: 100px;
+}
+
+nav button{
+    width:100px;
+    background: #2A77E2;
+    color: white;
+}
+
+input{
+    padding:0 5px;
+    min-width:150px;
+}
+
+button{
+    padding: 5px;
+    margin: 5px 0;
+    box-shadow: 3px 3px 1px black;
+    font-weight: bold;
+}
+
+.main{
+    display: flex;
+    align-items: flex-start;
+    margin:10px 0;
+    gap:10px;
+    flex-wrap: wrap;
+}
+
+.main-body{
+    flex:2;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    min-width: 300px;
+}
+
+.side-bar{
+    flex:1;
+    min-width: 150px;
+}
+
+.card{
+    border: solid 3px black;
+    padding:20px;
+    background: lightblue;
+}
+
+.main-body .card{
+    display: flex;
+    align-items: center;
+    gap:10px;
+    flex-wrap: wrap;
+}
+
+.card-left{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    min-width: 100px;
+}
+
+.card-left h4{
+    font-style: italic;
+}
+
+.card-left p span{
+    font-style: italic;
+}
+
+.card-left button{
+    background: orange;
+    border: solid 1px black;
+    text-align: center;
+}
+
+.card-right{
+flex:3;
+}
+
+.side-bar button{
+    background: #93C47D;
+    text-align: center;
+    border: solid 1px black;
+    width: 150px;
+}
+
+.side-bar .card{
+    display: flex;
+    flex-direction: column;
+    gap:10px;   
+}
