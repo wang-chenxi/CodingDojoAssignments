@@ -2,8 +2,7 @@
 // Using what we've learned about the Math library in js, complete the following
 // function that should return a value between 1 through 6 at random (1 and 6 inclusive)
 function d6() {
-    var roll = Math.random(); // remember, this is going to be anywhere between 0 (inclusive) and 1 (not inclusive)
-    // your code here, whole numbers only!
+    var roll = Math.floor(Math.random() * 6) + 1; // remember, this is going to be anywhere between 0 (inclusive) and 1 (not inclusive)
     return roll;
 }
 
@@ -38,5 +37,8 @@ function oracle() {
         "Very doubtful."
     ];
 
-    // your code here
+    var randomSelect = lifesAnswers[Math.floor(Math.random() * lifesAnswers.length)];
+    console.log(randomSelect);
 }
+
+oracle();
