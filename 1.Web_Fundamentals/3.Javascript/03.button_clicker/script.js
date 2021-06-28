@@ -3,7 +3,9 @@ var countLikes = [0, 0];
 var likes = [document.querySelector("button#1"), document.querySelector("button#2")];
 
 function ninjaButton(element) {
-    alert("ninja was liked!");
+    var title = element.parentElement.querySelector("h2").innerText;
+    console.log(title);
+    alert(title + " was liked!");
     var index = element.id - 1;
     countLikes[index]++;
     element.innerText = countLikes[index] + " like(s)";
