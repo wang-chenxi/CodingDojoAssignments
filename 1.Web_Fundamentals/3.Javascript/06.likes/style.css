@@ -1,0 +1,94 @@
+
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: cursive;
+}
+
+.container{
+    max-width: 960px;
+    margin:0 auto;
+}
+
+nav{
+    height: 75px;
+    background: black;
+    font-size: xx-large;
+    text-align: left;
+    color: white;
+    padding-left: 10px;
+    padding-top: 20px;
+}
+
+.main > h1{
+    text-align: center;
+    margin: 10px auto;
+}
+
+/* content */
+.content{
+    display: flex;
+    gap:10px;
+    align-items: flex-start;
+}
+
+/* profile */
+.profile-card{
+    flex:1;
+    border: solid 3px black;
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.profile-card >img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.profile-card > a{
+    font-size: larger;
+}
+
+/* card */
+.feed{
+    flex:3;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card{
+    border:solid 3px black;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header > h1{
+flex:2;
+}
+
+.like{
+    flex:1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.like-button{
+    background-color: orange;
+border: solid 3px black;
+box-shadow: 3px 3px 1px black;
+min-width: 75px;
+}

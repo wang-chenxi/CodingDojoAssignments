@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Likes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <nav>Network</nav>
+        <div class="main">
+            <h1>Your Feed</h1>
+            <div class="content">
+                <div class="profile-card">
+                    <img src="profile.jpg" alt="">
+                    <a href="#">Add an avatar</a>
+                    <h2>Chenxi Wang</h2>
+                </div>
+                <div class="feed">
+                    <div class="card">
+                        <div class="header">
+                            <h1 class="user-name">
+                                Chenxi Wang
+                            </h1>
+                            <div class="like">
+                                <span class="count" id="like-1">1 like(s)</span>
+                                <button class="like-button" onClick="addLike(this.id)" id="1">Like</button>
+                            </div>
+                        </div>
+                        <p>Hello, this is Chenxi Wang!<br>Have a great day!</p>
+                    </div>
+                    <div class="card">
+                        <div class="header">
+                            <h1 class="user-name">
+                                Chenxi Wang
+                            </h1>
+                            <div class="like">
+                                <span class="count" id="like-2">1 like(s)</span>
+                                <button class="like-button" onClick="addLike(this.id)" id="2">Like</button>
+                            </div>
+                        </div>
+                        <p>Hello, this is Chenxi Wang!<br>Have a great day!</p>
+                    </div>
+                    <div class="card">
+                        <div class="header">
+                            <h1 class="user-name">
+                                Chenxi Wang
+                            </h1>
+                            <div class="like">
+                                <span class="count" id="like-3">1 like(s)</span>
+                                <button class="like-button" onClick="addLike(this.id)" id="3">Like</button>
+                            </div>
+                        </div>
+                        <p>Hello, this is Chenxi Wang!<br>Have a great day!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
