@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dojonary</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
 </head>
 
 <body>
@@ -34,7 +33,7 @@
                         <p>
                             Plural: <span>ninjas</span>
                         </p>
-                        <button onclick="ninjaButton()">13 likes</button>
+                        <button onclick="ninjaButton(this)" id="1">0 like(s)</button>
                     </div>
                     <p class="card-right">
                         A practitioner skilled in the <a href="#">Japanese</a> art of <a href="#">ninjutsu</a>
@@ -43,15 +42,15 @@
                 <div class="card">
                     <div class="card-left">
                         <h2>
-                            ninja
+                            sensei
                         </h2>
                         <h4>
                             noun
                         </h4>
                         <p>
-                            Plural: <span>ninjas</span>
+                            Plural: <span>senseis</span>
                         </p>
-                        <button onclick="ninjaButton()">13 likes</button>
+                        <button onclick="ninjaButton(this)" id="2">0 like(s)</button>
                     </div>
                     <p class="card-right">
                         A practitioner skilled in the <a href="#">Japanese</a> art of <a href="#">ninjutsu</a>
@@ -66,6 +65,7 @@
             </div>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 
 </html>

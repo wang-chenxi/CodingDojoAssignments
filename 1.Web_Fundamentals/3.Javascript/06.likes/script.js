@@ -5,3 +5,4 @@ function addLike(index) {
     count[index - 1]++;
     likeCount[index - 1].innerText = count[index - 1] + " like(s)";
 }
+
