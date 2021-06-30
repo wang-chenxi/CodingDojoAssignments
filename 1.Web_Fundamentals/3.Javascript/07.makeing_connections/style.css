@@ -136,6 +136,13 @@ a{
     padding: 5px 20px;
     color: white;
 }
+
+.header span{
+    background: gray;
+    border-radius: 100%;
+    color: darkgreen;
+}
+
 .content{
     padding: 10px 20px;
     display: flex;

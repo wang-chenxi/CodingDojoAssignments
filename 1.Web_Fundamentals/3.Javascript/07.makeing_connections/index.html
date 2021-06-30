@@ -49,7 +49,7 @@
                             <h4>Hello world!</h4>
                             <div class="edit">
                                 <img src="icons\gear.png" alt="" id="icon">
-                                <a href="www.google.com" onclick="changeName()">edit profile</a>
+                                <a href="#" onclick="changeName()">edit profile</a>
                             </div>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
             <div class="sidebar">
                 <div class="sub-container" id="requests">
                     <h2 class="header">
-                        Connection Requests
+                        <span class="requestCount">3</span> Connection Requests
                     </h2>
                     <div class="content">
                         <div class="connects">
@@ -81,8 +81,9 @@
                                 <h3>Adrien</h3>
                             </div>
                             <div class="action">
-                                <a href="#"><img src="icons\accept-circle.png" alt=""></a>
-                                <a href="#"><img src="icons\close-circle.png" alt=""></a>
+                                <a href="#"><img src="icons\accept-circle.png" alt="" onclick="remove(this)"
+                                        class="accept"></a>
+                                <a href="#"><img src="icons\close-circle.png" alt="" onclick="remove(this)"></a>
                             </div>
                         </div>
                         <div class="connects">
@@ -91,8 +92,9 @@
                                 <h3>Anne</h3>
                             </div>
                             <div class="action">
-                                <a href="#"><img src="icons\accept-circle.png" alt=""></a>
-                                <a href="#"><img src="icons\close-circle.png" alt=""></a>
+                                <a href="#"><img src="icons\accept-circle.png" alt="" onclick="remove(this)"
+                                        class="accept"></a>
+                                <a href="#"><img src="icons\close-circle.png" alt="" onclick="remove(this)"></a>
                             </div>
                         </div>
                         <div class="connects">
@@ -101,14 +103,18 @@
                                 <h3>Todd</h3>
                             </div>
                             <div class="action">
-                                <a href="#"><img src="icons\accept-circle.png" alt=""></a>
-                                <a href="#"><img src="icons\close-circle.png" alt=""></a>
+                                <a href="#"><img src="icons\accept-circle.png" alt="" onclick="remove(this)"
+                                        class="accept"></a>
+                                <a href="#"><img src="icons\close-circle.png" alt="" onclick="remove(this)"></a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="sub-container" id="connection">
-                    <h2 class="header">Your Connections</h2>
+                    <h2 class="header">
+                        <span class="connectCount">418</span>
+                        Your Connections
+                    </h2>
                     <div class="content">
                         <div class="connects">
                             <div class="people">
