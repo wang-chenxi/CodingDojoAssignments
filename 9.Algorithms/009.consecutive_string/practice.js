@@ -128,4 +128,5 @@ function decodeStr(str) {
 console.log(decodeStr("a3b2cd3"));
 console.log(decodeStr("a3b2cd"));
 console.log(decodeStr(""));
-console.log(decodeStr("a10"));
+console.log(decodeStr("a9"));
+//the current solution didn't think of the edge case
