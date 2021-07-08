@@ -1,6 +1,8 @@
 class User:
     bank_name = "First National Dojo"
 
+# SENSEI BONUS: Allow a user to have multiple accounts; update methods so the user has to specify which account they are withdrawing or depositing to
+
     def __init__(self, name, email_address):
         self.name = name
         self.email = email_address
