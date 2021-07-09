@@ -46,6 +46,15 @@ function isPalindrome(str) {
     return true;
 }
 
+function isPalindrome(str) {
+    var l = 0, r = str.length - 1;
+    while (l < r && str.charAt(l) == str.charAt(r)) {
+        l++;
+        r--;
+    }
+    return l >= r;
+}
+
 console.log(isPalindrome("a x a"))
 console.log(isPalindrome(" "))
 console.log(isPalindrome("Dud"))
@@ -84,6 +93,7 @@ console.log(isPalindrome("a x  a"))
  * @param {string} str
  * @returns {string} The longest palindromic substring from the given string.
  */
+// break -> while, for
 function longestPalindromicSubstring(str) {
     if (str.length == 0) {
         return false;
@@ -92,24 +102,15 @@ function longestPalindromicSubstring(str) {
     var str_at_max = str.charAt(0);
     for (var i = 0; i < str.length; i++) {
         for (var j = i + 1; j < str.length; j++) {
-            if (str.charAt(j) == str.charAt(i)) {
-                var l = i;
-                var r = j;
-                while (l < r) {
-                    l++;
-                    r--;
-                    if (str.charAt(i) != str.charAt(j)) {
-                        break;
-                    }
-                }
-                if (j - i > maxLength) {
-                    maxLength = j - i;
-                    str_at_max = "";
-                    for (var x = i; x <= j; x++) {
-                        str_at_max += str.charAt(i);
-
-                    }
-                }
+            var l = i;
+            var r = j;
+            while (l < r && str.charAt(l) == str.charAt(r)) {
+                l++;
+                r--;
+            }
+            if (l >= r && j - i + 1 > maxLength) {
+                maxLength = j - i + 1;
+                str_at_max = str.slice(i, j + 1);
             }
         }
     }
