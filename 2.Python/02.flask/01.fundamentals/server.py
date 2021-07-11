@@ -5,14 +5,19 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 
-@app.route('/')
-def foo():
-    return 'Hello World!'
+# @app.route('/')
+# def foo():
+# return 'Hello World!'
+# return render_template('index.html')
 # @app.route('/foo') any other routes
 # def that_routes_foo():
-    # return whatever
+# return whatever
 
 # localhost:5000/dojo - have it say "Dojo!"
+
+@app.route('/')
+def index():
+    return render_template('index-2.html', phrase='hello', times=5)
 
 
 @app.route('/dojo')
