@@ -47,3 +47,18 @@ function generateCoinChangeObject(cents) {
 }
 
 console.log(generateCoinChangeObject(173))
+console.log(generateCoinChangeObject(100))
+
+//Solution 2
+function generateCoinChangeObject(cents) {
+    coins = [25, 10, 5, 1]
+    output = { "quarters": 0, "dimes": 0, "nickels": 0, "pennies": 0 };
+    for (var coinsIndex in coins) {
+        var value = (cents - (cents % coins[coinsIndex])) / coins[coinsIndex];
+        output[Object.keys(output)[coinsIndex]] = value
+        cents = cents % coins[coinsIndex];
+    }
+    return output;
+}
+
+console.log(generateCoinChangeObject(173))
