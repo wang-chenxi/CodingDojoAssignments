@@ -1,2 +1,4 @@
 # Team members
-Chenxi, John, Richard
+Chenxi:route 
+John:css 
+Richard:html
