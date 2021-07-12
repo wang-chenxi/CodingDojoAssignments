@@ -1,4 +1,4 @@
 # Team members
-Chenxi:route 
-John:css 
-Richard:html
+* Chenxi:route 
+* John:css 
+* Richard:html
