@@ -18,9 +18,19 @@ def no_response(not_assigned):
     return '404- there is no page here. Go to HOME page'
 
 
-@app.route('/form', methods=['POST'])
+@app.route('/process', methods=['POST'])
 def form():
-    return redirect('/')
+    session["name"] = request.form["name"].capitalize()
+    session["location"] = request.form["location"].capitalize()
+    session["language"] = request.form["language"].capitalize()
+    session["gender"] = request.form["gender"].capitalize()
+    session["comments"] = request.form["comments"]
+    return redirect('/result')
+
+
+@app.route('/result')
+def result():
+    return render_template('result.html')
 
 
 if __name__ == '__main__':
