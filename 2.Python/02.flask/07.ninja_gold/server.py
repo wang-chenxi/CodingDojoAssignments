@@ -14,10 +14,19 @@ def indexPage():
     if "gold" not in session:
         session["gold"] = 0
         session["activities"] = []
+        session["count"] = 0
     return render_template('index.html')
 # @app.route('/foo') any other routes
 # def that_routes_foo():
     # return whatever
+
+
+@app.route('/reset', methods=["POST"])
+def reset():
+    session['gold'] = 0
+    session["activities"] = []
+    session["count"] = 0
+    return redirect('/')
 
 
 @app.route('/process_money', methods=["POST"])
@@ -32,14 +41,22 @@ def submitForm():
     if building == 'casino':
         gold = randrange(-50, 51)
     session["gold"] += gold
+    session["count"] += 1
     now = datetime.now()
     current_time = now.strftime("%D %H: %M: %S")
+    # if gold > 0:
+    #     session["activities"].insert(0,
+    #                                  f"Earned {gold} golds from the {building}! {current_time}")
+    # else:
+    #     session["activities"].insert(0,
+    #                                  f"Entered a casino and lost {abs(gold)} golds... {current_time}")
     if gold > 0:
-        session["activities"].append(
-            f"Earned {gold} golds from the {building}! {current_time}")
+        session["activities"].insert(0,
+                                     {"gold": gold, "building": building, "time": current_time, "earn": "true"})
     else:
-        session["activities"].append(
-            f"Entered a casino and lost {abs(gold)} golds... {current_time}")
+        session["activities"].insert(0,
+                                     {"gold": abs(gold), "building": building, "time": current_time, "earn": "false"})
+
     return redirect('/')
 
 

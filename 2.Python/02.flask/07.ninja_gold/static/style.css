@@ -1,0 +1,50 @@
+*{
+    margin:0;
+    padding:0;
+    font-family: cursive;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+h1{
+    text-align: center;
+    font-size: 50px;
+    color: rgb(218, 138, 34);
+}
+
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    gap:20px;
+    justify-content: space-between;
+}
+
+.card{
+    width: 250px;
+    height: 250px;
+    background: lightblue;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    width: fit-content;
+}
+
+.board{
+    height: 250px;
+    overflow: scroll;
+    overflow-x: hidden;
+    border: solid 3px lightseagreen;
+    padding: 20px;
+    background: navajowhite;
+}

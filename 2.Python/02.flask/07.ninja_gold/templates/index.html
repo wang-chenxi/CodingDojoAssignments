@@ -5,57 +5,90 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <title>Ninja Money</title>
 </head>
 
 <body>
-    <div>Your Gold: {{session["gold"]}}</div>
-    <form action="/process_money" method="post">
-        <div>
-            <h1>Farm</h1>
-            <span>(earns 10-20 golds)</span>
+    <div class="container">
+        <h1>Welcome to the Ninja Money!</h1>
+        <div>Your Gold: {{session["gold"]}}</div>
+        <div class="cards">
+            <form action="/process_money" method="post" class="card">
+                <div>
+                    <h1>Farm</h1>
+                    <span>(earns 10-20 golds)</span>
+                </div>
+                <input type="hidden" name="building" value="farm" />
+                <input type="submit" value="Find Gold!" />
+            </form>
+
+            <form action="/process_money" method="post" class="card">
+                <div>
+                    <h1>Cave</h1>
+                    <span>(earns 5-10 golds)</span>
+                </div>
+                <input type="hidden" name="building" value="cave" />
+                <input type="submit" value="Find Gold!" />
+            </form>
+
+
+            <form action="/process_money" method="post" class="card">
+                <div>
+                    <h1>House</h1>
+                    <span>(earns 2-5 golds)</span>
+                </div>
+                <input type="hidden" name="building" value="house" />
+                <input type="submit" value="Find Gold!" />
+            </form>
+
+
+            <form action="/process_money" method="post" class="card">
+                <div>
+                    <h1>Casino</h1>
+                    <span>(earns/takes 0-50 golds)</span>
+                </div>
+                <input type="hidden" name="building" value="casino" />
+                <input type="submit" value="Find Gold!" />
+            </form>
         </div>
-        <input type="hidden" name="building" value="farm" />
-        <input type="submit" value="Find Gold!" />
-    </form>
-
-    <form action="/process_money" method="post">
-        <div>
-            <h1>Cave</h1>
-            <span>(earns 5-10 golds)</span>
-        </div>
-        <input type="hidden" name="building" value="cave" />
-        <input type="submit" value="Find Gold!" />
-    </form>
-
-
-    <form action="/process_money" method="post">
-        <div>
-            <h1>House</h1>
-            <span>(earns 2-5 golds)</span>
-        </div>
-        <input type="hidden" name="building" value="house" />
-        <input type="submit" value="Find Gold!" />
-    </form>
-
-
-    <form action="/process_money" method="post">
-        <div>
-            <h1>Casino</h1>
-            <span>(earns/takes 0-50 golds)</span>
-        </div>
-        <input type="hidden" name="building" value="casino" />
-        <input type="submit" value="Find Gold!" />
-    </form>
-
-    <h2>Activities:</h2>
-    <ul>
-        {%for x in session["activities"] %}
-        <li>
-            {{x}}
-        </li>
-        {% endfor %}
-    </ul>
+        {% if session["gold"]>500 and session["count"]<15 %} <h2>
+            You win!
+            </h2>
+            <div>
+                <form action="/reset" method="post">
+                    <input type="submit" value="Reset" />
+                </form>
+            </div>
+            {%elif session["count"]>= 15 %}
+            <h2>
+                You lost!
+            </h2>
+            <div>
+                <form action="/reset" method="post">
+                    <input type="submit" value="Reset" />
+                </form>
+            </div>
+            {% endif %}
+            <div class="activities">
+                <h2>Activities:</h2>
+                <div class="board">
+                    <ul>
+                        {%for x in session["activities"] %}
+                        {%if x["earn"] == "true"%}
+                        <li style="color: green;">
+                            Earned {{x["gold"]}} golds from the {{x["building"]}}! {{x["time"]}}
+                        </li>
+                        {%else%}
+                        <li style="color: red;">
+                            Entered a casion and lost {{x["gold"]}} golds! {{x["time"]}}
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+    </div>
 </body>
 
 </html>
