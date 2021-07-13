@@ -13,30 +13,34 @@ app.secret_key = "this is a secret key"
 def indexPage():
     if "gold" not in session:
         session["gold"] = 0
-    now = datetime.now()
-    current_time = now.strftime("%D %H: %M: %S")
-    return render_template('index.html', current_time=current_time)
+        session["activities"] = []
+    return render_template('index.html')
 # @app.route('/foo') any other routes
 # def that_routes_foo():
     # return whatever
 
 
-@app.route('/process_money', method=["post"])
+@app.route('/process_money', methods=["POST"])
 def submitForm():
-    if request.form['building'] == 'farm':
+    building = request.form['building']
+    if building == 'farm':
         gold = randrange(10, 21)
-        building = "farm"
-    if request.form['building'] == 'cave':
+    if building == 'cave':
         gold = randrange(5, 11)
-        building = "cave"
-    if request.form['building'] == 'house':
+    if building == 'house':
         gold = randrange(2, 6)
-        building = "house"
-    if request.form['building'] == 'casino':
+    if building == 'casino':
         gold = randrange(-50, 51)
-        building = "casino"
     session["gold"] += gold
-    return redirect('index.html', gold=gold, building=building)
+    now = datetime.now()
+    current_time = now.strftime("%D %H: %M: %S")
+    if gold > 0:
+        session["activities"].append(
+            f"Earned {gold} golds from the {building}! {current_time}")
+    else:
+        session["activities"].append(
+            f"Entered a casino and lost {abs(gold)} golds... {current_time}")
+    return redirect('/')
 
 
 # this must be below ALL routes
