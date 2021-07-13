@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            border: solid 3px black;
+            padding: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        form div {
+            display: flex;
+            align-items: center;
+            width: 500px;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form action="/process" method="post">
+            <div>
+                <label for="name">Your Name:</label>
+                <input type="text" name="name">
+            </div>
+            <div>
+                <label for="location">Dojo Location:</label>
+                <select name="location" id="location">
+                    <option value="san_jose">San Jose</option>
+                    <option value="seattle">Seattle</option>
+                    <option value="new_york">New York</option>
+                </select>
+            </div>
+            <div>
+                <label for="language">Favorite Language:</label>
+                <select name="language" id="language">
+                    <option value="english">English</option>
+                    <option value="chinese">Chinese</option>
+                    <option value="japanese">Japanese</option>
+                </select>
+            </div>
+            <div>
+                <div class="gender">
+                    <input type="radio" name="gender" value="male">
+                    <label for="male">Male</label>
+                </div>
+                <div class="gender">
+                    <input type="radio" name="gender" value="female">
+                    <label for="female">Female</label>
+                </div>
+            </div>
+            <div class="comment">
+                <label for="comments">Comment (Optional)</label>
+                <br />
+                <textarea name="comments" style="width:400px; height:200px;">
+            </textarea>
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+
+</html>
