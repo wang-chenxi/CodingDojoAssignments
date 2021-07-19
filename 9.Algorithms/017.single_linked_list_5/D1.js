@@ -207,11 +207,39 @@ class SLList {
             return;
         }
         var runner = this.head;
-
+        var lagger = null;
+        while (runner != null) {
+            // the head is negative
+            if (this.head.value < 0) {
+                runner.runner.next;
+                this.head.next = null;
+                this.head = runner;
+            } else if (runner.value < 0) {
+                // move runner to the next
+                runner = runner.next;
+                // romove negative value's next to completely remove the node without making a new linked list
+                lagger.next.next = null;
+                lagger.next = runner;
+            }
+            if (runner == null) {
+                return this;
+            }
+            //iterate
+            lagger = runner;
+            runner = runner.next;
+        }
     }
-}
 
-secondToLastValue(){
 
-}
+    secondToLastValue() {
+        if (this.head == null || this.head.next == null) {
+            return false;
+        }
+
+        var runner = this.head;
+        while (runner.next != null) {
+            runner = runner.next;
+        }
+        return runner.value;
+    }
 }
