@@ -191,7 +191,7 @@ class SLList {
                 newNode.next = runner.next;
                 // let the current runner point to the new node
                 runner.next = newNode;
-                return;
+                return this;
             }
             runner = runner.next;
         }
@@ -203,6 +203,7 @@ class SLList {
         if (this.head == null) {
             return false;
         }
+        // use one runner to go through the list
         var runner = this.head;
         // the edge case is when the [value to find] is the last node, so we execute the logic first, and then move the runner
         do {
@@ -210,17 +211,17 @@ class SLList {
                 var newNode = new SLNode(newValue);
                 newNode.next = runner.next;
                 runner.next = newNode;
-                return;
+                return this;
             }
-            runner++;
-        } while (runner.next != null);
+            runner = runner.next;
+            // not runner.next != null
+        } while (runner != null);
         return false;
     }
 }
 
 var list = new SLList();
-list.addToBack(2).addToBack(1);
+list.addToBack(1);
 console.log("before: ", list);
-list.appendValue(24, 3);
-console.log(list.appendValue(24, 3));
+list.appendValue(1, 3);
 console.log("after: ", list);
