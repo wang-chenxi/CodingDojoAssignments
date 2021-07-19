@@ -14,7 +14,7 @@ app.secret_key = 'this is a secret key'
 def home():
     # call the get all classmethod to get all friends
     users = User.get_all()
-    return render_template('index.html')
+    return render_template('index.html', users=users)
 
 
 @app.errorhandler(404)
@@ -22,14 +22,19 @@ def no_response(not_assigned):
     return '404- there is no page here. Go to HOME page'
 
 
+@app.route('/form')
+def create():
+    return render_template('create.html')
+
+
 @app.route('/form', methods=['POST'])
 def form():
-    # data = {
-    # 'fname': request.form['fname'],
-    # 'lname' : request.form['lname'],
-    # 'occ' : request.form['occ']
-    # }
-    # Dataclass.save(data)
+    data = {
+        'fname': request.form['fname'],
+        'lname': request.form['lname'],
+        'email': request.form['email']
+    }
+    User.save(data)
     return redirect('/')
 
 
