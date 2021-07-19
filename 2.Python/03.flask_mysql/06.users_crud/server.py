@@ -12,17 +12,30 @@ app.secret_key = 'this is a secret key'
 
 @app.route('/users')
 def home():
-    # call the get all classmethod to get all friends
     users = User.get_all()
     return render_template('index.html', users=users)
 
 
 @app.route('/users/<id>')
 def show(id):
-    # call the get all classmethod to get all friends
-    data = {'id': id}
+    data = {'id': int(id)}
     user = User.get_by_id(data)
     return render_template('show.html', user=user)
+
+
+@app.route('/users/<id>/edit')
+def edit(id):
+    data = {'id': int(id)}
+    user = User.get_by_id(data)
+    return render_template('update.html', user=user)
+
+
+@app.route('/users/<id>/delete')
+def delete(id):
+    # call the get all classmethod to get all friends
+    data = {'id': int(id)}
+    User.delete_by_id(data)
+    return redirect('/users')
 
 
 @app.errorhandler(404)
@@ -43,7 +56,19 @@ def form():
         'email': request.form['email']
     }
     User.save(data)
-    return redirect('/')
+    return redirect('/users')
+
+
+@app.route('/edit', methods=['POST'])
+def edit_submit():
+    data = {
+        'id': request.form['id'],
+        'fname': request.form['fname'],
+        'lname': request.form['lname'],
+        'email': request.form['email'],
+    }
+    User.update_by_id(data)
+    return redirect('/users')
 
 
 if __name__ == '__main__':

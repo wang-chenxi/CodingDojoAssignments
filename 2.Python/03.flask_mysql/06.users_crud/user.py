@@ -27,11 +27,29 @@ class User:
 
     @classmethod
     def get_by_id(cls, data):
-        query = "SELECT * FROM users by id = VALUES%(id)s;"
+        query = "SELECT * FROM users WHERE id = %(id)s;"
+        print("id", id)
         # make sure to call the connectToMySQL function with the schema you are targeting.
         results = connectToMySQL('users').query_db(query, data)
+        print(results, "result")
         user = cls(results[0])
         return user
+
+    @classmethod
+    def delete_by_id(cls, data):
+        query = "DELETE FROM users WHERE id = %(id)s;"
+        print("id", id)
+        # make sure to call the connectToMySQL function with the schema you are targeting.
+        connectToMySQL('users').query_db(query, data)
+        return
+
+    @classmethod
+    def update_by_id(cls, data):
+        query = "UPDATE users SET first_name =%(fname)s, last_name=%(lname)s,email=%(email)s WHERE id = %(id)s;"
+        print("id", id)
+        # make sure to call the connectToMySQL function with the schema you are targeting.
+        connectToMySQL('users').query_db(query, data)
+        return
 
     @classmethod
     def save(cls, data):
