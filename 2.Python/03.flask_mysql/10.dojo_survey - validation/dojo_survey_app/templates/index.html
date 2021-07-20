@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .row {
+            margin: 5px;
+        }
+
+
+        .container {
+            border: solid 3px black;
+            max-width: fit-content;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container d-flex p-5">
+        <form action="/process" method="post" class="m-5 form d-flex flex-column ">
+            <div class="row  d-flex justify-content-between">
+                <label for="name" class="col">Your Name:</label>
+                <input type="text" name="name" class="col">
+                {% with name_errors = get_flashed_messages(category_filter=['name']) %}
+                {% for message in name_errors %}
+                <p class="text-danger">{{ message }}
+                    {% endfor %}
+                    {% endwith %}
+            </div>
+            <div class="row  d-flex justify-content-between">
+                <label for="location" class="col">Dojo Location:</label>
+                <select name="location" id="location" class="col">
+                    <option value="san jose">San Jose</option>
+                    <option value="seattle">Seattle</option>
+                    <option value="new york">New York</option>
+                </select>
+                {% with name_errors = get_flashed_messages(category_filter=['location']) %}
+                {% for message in name_errors %}
+                <p class="text-danger">{{ message }}
+                    {% endfor %}
+                    {% endwith %}
+            </div>
+            <div class="row  d-flex justify-content-between">
+                <label for="language" class="col">Favorite Language:</label>
+                <select name="language" id="language" class="col">
+                    <option value="english">English</option>
+                    <option value="chinese">Chinese</option>
+                    <option value="japanese">Japanese</option>
+                </select>
+                {% with name_errors = get_flashed_messages(category_filter=['language']) %}
+                {% for message in name_errors %}
+                <p class="text-danger">{{ message }}
+                    {% endfor %}
+                    {% endwith %}
+            </div>
+            <div class=" row comment">
+                <label for="comment">Comment</label>
+                <br />
+                <textarea name="comment" style="width:400px; height:200px;"></textarea>
+                {% with name_errors = get_flashed_messages(category_filter=['comment']) %}
+                {% for message in name_errors %}
+                <p class="text-danger">{{ message }}
+                    {% endfor %}
+                    {% endwith %}
+            </div>
+            <input type="submit" value="Submit" class="d-flex justify-content-center btn btn-primary"
+                style="max-width: fit-content;">
+        </form>
+    </div>
+</body>
+
+</html>

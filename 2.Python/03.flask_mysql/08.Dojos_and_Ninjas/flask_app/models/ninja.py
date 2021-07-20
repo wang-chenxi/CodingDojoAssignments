@@ -17,7 +17,7 @@ class Ninja:
         results = connectToMySQL('dojos_and_ninjas').query_db(query)
         ninjas = []
         for ninja in results:
-            ninjas.append(cls(dojo))
+            ninjas.append(cls(ninja))
         return ninjas
 
     @classmethod
