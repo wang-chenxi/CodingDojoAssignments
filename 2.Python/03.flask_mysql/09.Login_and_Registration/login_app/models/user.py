@@ -1,21 +1,31 @@
+from login_app.config.mysqlconnection import connectToMySQL
 from flask import flash
+from flask_bcrypt import Bcrypt
+from login_app import app
 import re
 
-LETTERS_ONLY_REGEX = re.
-EMAIL_REGEX = re.
+bcrypt = Bcrypt(app)
+
+LETTERS_ONLY_REGEX = re.compile(r'^[a-zA-Z]+$')
+EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 
 
 class User:
-    def__init__(self, data):
+    def __init__(self, data):
         self.id = data['id']
         self.first_name = data['first_name']
         self.last_name = data['last_name']
         self.email = data['email']
         self.password = data['password']
+        # default/expression: CURRENT_TIMESTAMP
+        self.created_at = data['created_at']
+        # default/expression: CURRENT_TIMESTAMP ON UPDATE CURRENT TIMESTMAP
+        self.updated_at = data['updated_at']
 
     @classmethod
     def save(cls, data):
-        return
+        query = 'INSERT INTO users ( first_name, last_name, email, password,created_at, updated_at) VALUES ( %(first_name)s, %(last_name)s, %(email)s, %(password)s,NOW(),NOW());'
+        return connectToMySQL('login_and_registration').query_db(query, data)
 
     @staticmethod
     def validate_registration(data):
@@ -29,7 +39,7 @@ class User:
             flash("First name should be more than 2 characters", "first_name")
             is_valid = False
         elif not LETTERS_ONLY_REGEX.match(data['first_name']):
-            flash("First name should be alphanumeric values", "first_name")
+            flash("First name should be letters only", "first_name")
             is_valid = False
 
         # last name
@@ -41,12 +51,12 @@ class User:
             flash("Last name should be more than 2 characters", "last_name")
             is_valid = False
         elif not LETTERS_ONLY_REGEX.match(data['last_name']):
-            flash("Last name should be alphanumeric values", "last_name")
+            flash("Last name should be letters only", "last_name")
             is_valid = False
 
         # email
-        if len(data['email_name']) == 0:
-            flash("email name is required", "email_name")
+        if len(data['email']) == 0:
+            flash("email name is required", "email")
             is_valid = False
         elif not EMAIL_REGEX.match(data['email']):
             flash(
@@ -55,6 +65,7 @@ class User:
         # does not in the database already
         elif not User.is_email_not_in_database(data):
             flash("This email already exists", "email")
+            is_valid = False
         # password
         if len(data['password']) == 0:
             flash("Password is required", "password")
@@ -72,19 +83,43 @@ class User:
     @classmethod
     def is_email_not_in_database(cls, data):
         query = "SELECT * FROM users WHERE email = %(email)s;"
-        results = connectTo
+        results = connectToMySQL(
+            'login_and_registration').query_db(query, data)
+        return len(results) == 0
 
-    @classmethod
-    def get_user_by_email(cls, data):
+    # @classmethod
+    # def get_user_by_email(cls, data):
+    #     return
 
     @classmethod
     def get_user_by_id(cls, data):
+        query = "SELECT * FROM users WHERE id = %(id)s;"
+        results = connectToMySQL(
+            'login_and_registration').query_db(query, data)
+        if len(results) > 0:
+            return cls(results[0])
+        else:
+            return False
 
     @staticmethod
     def validate_login(data):
+        if len(data['email']) == 0:
+            flash("email/password is required", "login_email")
+            return False
+
+        if len(data['password']) == 0:
+            flash("email/password is required", "login_email")
+            return False
+
+        user_in_db = User.is_email_not_in_database(data)
         # does an email in the database
-        if User.is_email_not_in_database(data):
-            flash("Invalid email/password", "email")
+        if not user_in_db:
+            flash("Invalid email/password", "login_email")
             return False
 
         # user in the database, if the password matches or not?
+        if not bcrypt.check_password_hash(user_in_db.password, data['password']):
+            flash("Invalid email/password", "login_email")
+            return False
+
+        return user_in_db

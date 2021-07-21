@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css' rel='stylesheet'
+        integrity='sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x' crossorigin='anonymous'>'
+    <title>Login and Registration</title>
+</head>
+
+<body>
+    <div class="container d-flex flex-column align-items-start">
+        <h1>Login and Registration</h1>
+        <div class="content d-flex">
+            <div class="register col-6">
+                <h2>Register here!</h2>
+                <form action="/create" method="POST">
+                    <label for="first_name">First Name</label>
+                    {% with name_errors = get_flashed_messages(category_filter=['first_name']) %}
+                    {% for message in name_errors %}
+                    <p class="text-danger">{{ message }}</p>
+                    {% endfor %}
+                    {% endwith %}
+                    <input type="text" name="first_name">
+                    <label for="last_name">Last Name</label>
+                    {% with name_errors = get_flashed_messages(category_filter=['last_name']) %}
+                    {% for message in name_errors %}
+                    <p class="text-danger">{{ message }}</p>
+                    {% endfor %}
+                    {% endwith %}
+                    <input type="text" name="last_name">
+                    <label for="email">Email</label>
+                    {% with name_errors = get_flashed_messages(category_filter=['email']) %}
+                    {% for message in name_errors %}
+                    <p class="text-danger">{{ message }}</p>
+                    {% endfor %}
+                    {% endwith %}
+                    <input type="text" name="email">
+                    <label for="password">Password</label>
+                    {% with name_errors = get_flashed_messages(category_filter=['password']) %}
+                    {% for message in name_errors %}
+                    <p class="text-danger">{{ message }}</p>
+                    {% endfor %}
+                    {% endwith %}
+                    <input type="text" name="password">
+                    <label for="confirm_password">Confirm Password</label>
+                    <input type="text" name="confirm_password">
+                    <input type="submit" Value="Register" class="btn btn-primary mt-3">
+                </form>
+            </div>
+            <div class="login col-6">
+                <h2>Login here!</h2>
+                <form action="/login" method="POST">
+                    <label for="email">Email</label>
+                    {% with name_errors = get_flashed_messages(category_filter=['login_email']) %}
+                    {% for message in name_errors %}
+                    <p class="text-danger">{{ message }}</p>
+                    {% endfor %}
+                    {% endwith %}
+                    <input type="text" name="email">
+                    <label for="password">Password</label>
+                    <input type="text" name="password">
+                    <input type="submit" Value="Login" class="btn btn-primary mt-3">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
