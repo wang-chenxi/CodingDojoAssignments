@@ -21,7 +21,8 @@ def form():
     if not User.validate_registration(request.form):
         return redirect('/')
 
-    hashed_password = bcrypt.generate_password_hash(request.form['password'])
+    hashed_password = bcrypt.generate_password_hash(
+        request.form['password'])
 
     data = {
         'first_name': request.form['first_name'],

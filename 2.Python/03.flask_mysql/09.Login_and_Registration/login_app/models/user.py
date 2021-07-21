@@ -5,12 +5,12 @@ from login_app import app
 import re
 
 bcrypt = Bcrypt(app)
-
 LETTERS_ONLY_REGEX = re.compile(r'^[a-zA-Z]+$')
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 
 
 class User:
+
     def __init__(self, data):
         self.id = data['id']
         self.first_name = data['first_name']
@@ -87,9 +87,15 @@ class User:
             'login_and_registration').query_db(query, data)
         return len(results) == 0
 
-    # @classmethod
-    # def get_user_by_email(cls, data):
-    #     return
+    @classmethod
+    def get_user_by_email(cls, data):
+        query = "SELECT * FROM users WHERE email = %(email)s;"
+        results = connectToMySQL(
+            'login_and_registration').query_db(query, data)
+        if len(results) == 0:
+            return False
+        else:
+            return cls(results[0])
 
     @classmethod
     def get_user_by_id(cls, data):
@@ -111,7 +117,7 @@ class User:
             flash("email/password is required", "login_email")
             return False
 
-        user_in_db = User.is_email_not_in_database(data)
+        user_in_db = User.get_user_by_email(data)
         # does an email in the database
         if not user_in_db:
             flash("Invalid email/password", "login_email")
