@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Recipes</title>
+    </head>
+
+<body>
+    <div class="container">
+        <nav class="row">
+            <h1 class="col-sm-10">Welcome, User!</h1>
+            <a href="/dashboard" class="col-sm-1">Dashboard</a>
+            <a href="/logout" class="col-sm-1">Logout</a>
+        </nav>
+        <main class="m-10">
+            <h1>{{recipe.name}}</h1>
+            <table>
+                <tr class="row"></tr>
+                <td col-sm-4>Description:</td>
+                <td col-sm-8>{{recipe.description}}</td>
+                </tr>
+                <tr>
+                    <td>Under 30 minutes:</td>
+                    <td>{% if recipe.fast == 1%} Yes {%else%} No {%endif%}</td>
+                </tr>
+                <tr>
+                    <td>Instructions:</td>
+                    <td>{{recipe.instruction}}</td>
+                </tr>
+                <tr>
+                    <td>Date Made:</td>
+                    <td>{{recipe.date.strftime("%B %#d, %Y")}}</td>
+                </tr>
+            </table>
+        </main>
+    </div>
+</body>
+
+</html>
+<title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>

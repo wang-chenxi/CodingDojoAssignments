@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css' rel='stylesheet'
+        integrity='sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x' crossorigin='anonymous'>'
+    <title>Friendships</title>
+</head>
+
+<body>
+    <div class="container d-flex gap-5">
+        <div>
+            <h1>Friendships</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">User</th>
+                        <th scope="col">Friend</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for friendship in friendships%}
+                    <tr scope="row">
+                        <td>{{friendship.user.first_name}} {{friendship.user.last_name}}</td>
+                        <td>{{friendship.friend.first_name}} {{friendship.friend.last_name}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <div>
+                <h1>Add User</h1>
+                <form action="/friendships/adduser" method="POST">
+                    <label for="first_name">First Name:</label>
+                    <input type="text" name="first_name">
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" name="last_name">
+                    <input type="submit" value="Add User">
+                </form>
+            </div>
+            <div>
+                <h1>Create Friendship</h1>
+                <form action="/friendships/addfriendship" method="POST">
+                    <label for="user_id">User: </label>
+                    <select name="user_id" id="user_id">
+                        {% for user in users%}
+                        <option value="{{user.id}}">{{user.first_name}} {{user.last_name}}</option>
+                        {% endfor%}
+                    </select>
+                    <label for="friend_id">Friend: </label>
+                    <select name="friend_id" id="friend_id">
+                        {% for friend in friends%}
+                        <option value="{{friend.id}}">{{friend.first_name}} {{friend.last_name}}</option>
+                        {% endfor%}
+                    </select>
+                    <input type="submit" value="Create">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
