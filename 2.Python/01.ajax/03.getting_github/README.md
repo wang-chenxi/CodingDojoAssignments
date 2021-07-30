@@ -11,3 +11,6 @@
 5. Once the data comes back, display the Github user information on the HTML page.
 
 6. Ninja Bonus: Add an input to let the user specify which user data comes back.
+
+<img src="output-1.png"/>
+<img src="output-2.png"/>
