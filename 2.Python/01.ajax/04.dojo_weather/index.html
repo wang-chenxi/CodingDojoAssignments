@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css' rel='stylesheet'
+        integrity='sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x' crossorigin='anonymous'>'
+</head>
+
+<body>
+    <nav>
+        <div class="nav-main">
+            <h1>DojoWeather</h1>
+            <div class="tab">
+                <span onclick="display(this)" class="btn btn-warning">Beijing</span>
+                <span onclick="display(this)" class="btn btn-warning">Tokyo</span>
+                <span onclick="display(this)" class="btn btn-warning">Singapore</span>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="header">
+            <h2 id="city">Beijing</h2>
+            <div class="temperature">
+                <p>show temperature in</p>
+                <select name="unit" id="unit" onchange="convertion(this)">
+                    <option>°C</option>
+                    <option>°F</option>
+                </select>
+            </div>
+        </div>
+        <div class="forecast">
+            <div class="card">
+                <h3>Today</h3>
+                <img src="./assets/some_rain.png" alt="rain" class="weather_img">
+                <p class="main_weather">some rain</p>
+                <div class="temp-range">
+                    <h3 class="high"><span class="covertableTemp">24</span>°</h3>
+                    <h3 class="low"><span class="covertableTemp">18</span>°</h3>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Tomorrow</h3>
+                <img src="./assets/some_sun.png" alt="sun" class="weather_img">
+                <p class="main_weather">some sun</p>
+                <div class="temp-range">
+                    <h3 class="high"><span class="covertableTemp">24</span>°</h3>
+                    <h3 class="low"><span class="covertableTemp">18</span>°</h3>
+                </div>
+            </div>
+            <div class="card">
+                <h3>In 2 days</h3>
+                <img src="./assets/some_clouds.png" alt="clouds" class="weather_img">
+                <p class="main_weather">some clouds</p>
+                <div class="temp-range">
+                    <h3 class="high"><span class="covertableTemp">21</span>°</h3>
+                    <h3 class="low"><span class="covertableTemp">16</span>°</h3>
+                </div>
+            </div>
+            <div class="card">
+                <h3>In 3 days</h3>
+                <img src="./assets/some_sun.png" alt="sun" class="weather_img">
+                <p class="main_weather">some sun</p>
+                <div class="temp-range">
+                    <h3 class="high"><span class="covertableTemp">26</span>°</h3>
+                    <h3 class="low"><span class="covertableTemp">21</span>°</h3>
+                </div>
+            </div>
+        </div>
+        <div class="cookie">
+            <img src="./assets/cookie.png" alt="cookie">
+            <div class="cookie-message">
+                <h4>Stop! Cookie time</h4>
+                <p>We use cookies (sadly not the adible ones) to blablablablablablablablablablabla and to analyse our
+                    traffic. <a href="#">Read more...</a></p>
+            </div>
+            <button onclick="hide(this)">I Accept</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

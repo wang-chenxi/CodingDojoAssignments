@@ -43,8 +43,28 @@ const expected5 = 75;
  * @param {number} b
  * @returns {number} The lowest common multiple of the given ints.
  */
-function lowestCommonMult(a, b) { }
+//solution 1
+function lowestCommonMult(a, b, num1 = a, num2 = b) {
+  console.log(num1, num2);
+  if (num1 == num2) {
+    console.log("==");
+    console.log(num1, num2);
+    return num1;
+  }
+  if (num1 > num2) {
+    console.log("num1>");
+    console.log(num1, num2);
+    return lowestCommonMult(a, b, num1, num2 += b);
+  }
+  else if (num1 < num2) {
+    console.log("num1<");
+    console.log(num1, num2);
+    return lowestCommonMult(a, b, num1 += a, num2);
+  }
+}
 
+var results = lowestCommonMult(num2A, num2B);
+console.log(results);
 
 
 // http://algorithms.dojo.news/static/Algorithms/index.html#LinkTarget_2129
@@ -69,4 +89,38 @@ const expected1 = ["1000", "1001", "1100", "1101"];
  * @param {string} str The string containing to expand.
  * @returns {Array<string>} The expanded versions of the given string.
  */
-function binaryStringExpansion(str) { }
+// solution 1 
+
+function binaryStringExpansion(str, solutions = [], partial = "") {
+  const index = str.indexOf('?')
+
+  if (index < 0) {
+    solutions.push(partial + str)
+  } else {
+    const front = str.slice(0, index)
+    const back = str.slice(index + 1)
+    const prefix = partial + front
+    binaryStringExpansion(back, solutions, prefix + "0")
+    binaryStringExpansion(back, solutions, prefix + "1")
+  }
+  return solutions
+}
+
+console.log(binaryStringExpansion(str1));
+
+//solution 2
+function binaryStringExpansion(str, rtnArry = []) {
+  for (var index in str) {
+    if (str[index] == "?") {
+      binaryStringExpansion(str.replace("?", "0"), rtnArry);
+      binaryStringExpansion(str.replace("?", "1"), rtnArry);
+    }
+  }
+  if (!str.includes("?")) {
+    if (!rtnArry.includes(str)) {
+      rtnArry.push(str); //good string, push
+    }
+  }
+  return rtnArry;
+}
+console.log(binaryStringExpansion("1?0?"));
