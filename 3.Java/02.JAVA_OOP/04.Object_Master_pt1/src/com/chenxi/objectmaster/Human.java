@@ -14,6 +14,16 @@ public class Human {
 		this.health =100;
 	}
 	
+	
+	public Human(int strength, int stealth, int intelligence, int health) {
+		super();
+		this.strength = strength;
+		this.stealth = stealth;
+		this.intelligence = intelligence;
+		this.health = health;
+	}
+
+
 	public void attack(Human human) {
 		human.health -= this.strength;
 	}
