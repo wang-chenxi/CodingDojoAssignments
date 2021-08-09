@@ -14,13 +14,13 @@ public class HelloHumanApplication {
 		SpringApplication.run(HelloHumanApplication.class, args);
 	}
 
-	@RequestMapping("/")
-	public String human(@RequestParam(value="name",required=false) String name) {
-		if(name != null) {
-			return "<h1>Hello " + name + "!</h1><br>Welcome to SpringBoot!";
-		}else {
-			return "<h1>Hello Human!</h1><br>Welcome to SpringBoot!";		
-		}
-	}
+//	@RequestMapping("/")
+//	public String human(@RequestParam(value="name",required=false) String name) {
+//		if(name != null) {
+//			return "<h1>Hello " + name + "!</h1><br>Welcome to SpringBoot!";
+//		}else {
+//			return "<h1>Hello Human!</h1><br>Welcome to SpringBoot!";		
+//		}
+//	}
 	
 }
