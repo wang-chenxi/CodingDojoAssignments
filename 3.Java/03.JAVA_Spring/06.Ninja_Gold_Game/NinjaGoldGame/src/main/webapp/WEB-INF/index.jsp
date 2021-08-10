@@ -64,7 +64,7 @@ button{
 <body>
 	<div class="container">
         <h1>Welcome to the Ninja Money!</h1>
-        <div>Your Gold: {{session["gold"]}}</div>
+        <div>Your Gold: <c:out value="${gold}"/></div>
         <div class="cards">
             <form action="/process_money" method="post" class="card">
                 <div>
@@ -104,18 +104,7 @@ button{
                 <input type="submit" value="Find Gold!" />
             </form>
         </div>
-             <h2>
-            You win!
-            </h2>
-            <div>
-                <form action="/reset" method="post">
-                    <input type="submit" value="Reset" />
-                </form>
-            </div>
 
-            <h2>
-                You lost!
-            </h2>
             <div>
                 <form action="/reset" method="post">
                     <input type="submit" value="Reset" />
@@ -126,7 +115,9 @@ button{
                 <h2>Activities:</h2>
                 <div class="board">
                     <ul>
-
+<c:forEach var="record" items="${log}">
+            <li><c:out value="${record}"></c:out></li>
+        </c:forEach>
                     </ul>
                 </div>
             </div>
