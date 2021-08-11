@@ -120,21 +120,27 @@ class SLQueue {
     // Do not use any extra array or objects as storage.
     // Do not alter (pop from or push into) either queue.
     equals(secondQ) {
-        if (this.size == secondQ.size == 0) {
-            return true;
-        }
-        let runner1 = this.head;
-        let runner2 = secondQ.head;
+        // if the size is different, it's false
         if (this.size != secondQ.size) {
             return false;
         }
+        //edge case
+        if (this.size == secondQ.size == 0) {
+            return true;
+        }
+        // set up runner to iterate the two queues
+        let runner1 = this.head;
+        let runner2 = secondQ.head;
         while (runner1 != null) {
+            // if the value of runner is different, return false
             if (runner1.value != runner2.value) {
                 return false;
             }
+            //move runner to the next
             runner1 = runner1.next;
             runner2 = runner2.next;
         }
+        // if all the nodes in both queue are same, return true
         return true;
     }
 
@@ -142,21 +148,27 @@ class SLQueue {
     // Write a method on the Queue class that returns whether or not the queue is a palindrome
     // Use only 1 stack as additional storage (no additional arrays / objects).
     isPalindrome() {
+        // create an empty stack
         var stack = new SLStack();
+        // edge case
         if (this.size < 2) {
             return false;
         }
+        // create a runner and copy the queue to the stack with same order
         var runner = this.head;
         while (runner != null) {
             stack.push(runner.value);
             runner = runner.next;
         }
+        // use the FIFO and LIFO to compare whether the queue is palindrome
         var runner = this.head;
         while (this.head != null) {
             if (this.dequeue() != stack.pop()) {
+                // if not, return false
                 return false;
             }
         }
+        // if successfully run through all the nodes, return true
         return true;
     }
 }
