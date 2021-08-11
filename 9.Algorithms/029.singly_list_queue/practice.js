@@ -152,7 +152,7 @@ class SLQueue {
         var stack = new SLStack();
         // edge case
         if (this.size < 2) {
-            return false;
+            return true;
         }
         // create a runner and copy the queue to the stack with same order
         var runner = this.head;
@@ -161,7 +161,6 @@ class SLQueue {
             runner = runner.next;
         }
         // use the FIFO and LIFO to compare whether the queue is palindrome
-        var runner = this.head;
         while (this.head != null) {
             if (this.dequeue() != stack.pop()) {
                 // if not, return false
@@ -199,3 +198,7 @@ q3.enqueue("a")
 q3.enqueue("b")
 q3.enqueue("a")
 console.log(q3.isPalindrome()) // SHOULD RETURN FALSE
+
+var q4 = new SLQueue()
+var q5 = new SLQueue()
+console.log(q4.equals(q5))
