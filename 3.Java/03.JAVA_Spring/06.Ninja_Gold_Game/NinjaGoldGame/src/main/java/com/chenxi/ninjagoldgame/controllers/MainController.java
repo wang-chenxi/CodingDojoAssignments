@@ -54,8 +54,9 @@ public class MainController {
 		if(gold +earn <0) {
 			return "redirect:/prison";
 		}
-		Object log = httpSession.getAttribute("log");
-		((List<String>) log).add("You entered " + building + ", earned " + earn + " gold. " +formattedDate);
+		//Object log = httpSession.getAttribute("log");
+		List<String> log = (List<String>) httpSession.getAttribute("log");
+		log.add("You entered " + building + ", earned " + earn + " gold. " +formattedDate);
 		int count = (int)httpSession.getAttribute("count")+1;
 		httpSession.setAttribute("gold", earn + gold);
 		httpSession.setAttribute("log", log);
