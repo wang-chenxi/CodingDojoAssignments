@@ -13,7 +13,22 @@
 <body>
 	<div class="container">
 		<nav></nav>
-		<main></main>
+		<main class="m-5 p-5" style="background:lightblue">
+		<h1>
+		<c:out value="${language.name}"/>
+		</h1>
+		<h2>
+		Creator: <c:out value ="${language.creator}"/>
+		</h2>
+		<h2>
+		Version: <c:out value ="${language.version}"/>
+		</h2>
+		<h2>
+		Created At: <c:out value ="${language.createdAt}"/>
+		</h2>
+		<a href="/languages/edit/${language.id}" class="btn btn-warning">Edit</a>
+		<a href="/languages" class="btn btn-warning">Back to index</a>
+		</main>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 </body>
