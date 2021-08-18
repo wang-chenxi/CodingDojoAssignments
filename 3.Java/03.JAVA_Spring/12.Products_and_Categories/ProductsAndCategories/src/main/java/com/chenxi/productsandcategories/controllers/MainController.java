@@ -47,7 +47,8 @@ public class MainController {
 	@GetMapping("products/{id}")
 	public String product(@PathVariable("id")long id, Model model) {
 		model.addAttribute("product", this.service.findByProductId(id));
-		model.addAttribute("categories", this.service.findAllCategories());
+		//prevent adding duplicated categories
+		model.addAttribute("categories", this.service.findByProductsNotContains(this.service.findByProductId(id)));
 		return "productShow.jsp";
 	}
 	
@@ -67,7 +68,8 @@ public class MainController {
 	@GetMapping("categories/{id}")
 	public String category(@PathVariable("id")long id, Model model) {
 		model.addAttribute("category", this.service.findByCategoryId(id));
-		model.addAttribute("products",this.service.findAllProduct());
+		//prevent adding duplicated products
+		model.addAttribute("products",this.service.findByCategoriesNotContains(this.service.findByCategoryId(id)));
 		return "categoryShow.jsp";
 	}
 	

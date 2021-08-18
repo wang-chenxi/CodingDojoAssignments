@@ -25,6 +25,10 @@ public class MainService {
 		return this.productRepository.findAll();
 	}
 	
+	public List<Product> findByCategoriesNotContains(Category category){
+		return this.productRepository.findByCategoriesNotContains(category);
+	}
+	
 	public Product saveProduct(Product product) {
 		return this.productRepository.save(product);
 	}
@@ -56,6 +60,10 @@ public class MainService {
 	
 	public List<Category> findAllCategories(){
 		return this.categoryRepository.findAll();
+	}
+	
+	public List<Category> findByProductsNotContains(Product product){
+		return this.categoryRepository.findByProductsNotContains(product);
 	}
 	
 	public Category saveCategory(Category category) {
