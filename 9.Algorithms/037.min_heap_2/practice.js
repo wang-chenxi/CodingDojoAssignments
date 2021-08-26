@@ -59,44 +59,38 @@ class MinHeap {
     }
 
     extract() {
-        // TO SAVE THE MIN NUMBER THAT WE WANT TO RETURN
-        // SWAP THE FIRST AND LAST NUMBER IN ARR
-        // POP THE LAST NUMBER
+        let temp = this.heap[this.heap.length - 1];
+        this.heap[this.heap.length - 1] = this.heap[1];
+        this.heap[1] = temp;
+        let answer = this.heap.pop();
 
         // THE INDEX OF THE VALUE THAT WE ARE SWAPPING
         var index = 1;
-        var leftIdx = index * 2
-        var rightIdx = leftIdx + 1
+        var leftIdx = index * 2;
+        var rightIdx = leftIdx + 1;
 
-        while (leftIdx < this.heap.length) {
+        while (leftIdx < this.heap.length - 1) {
             // IS A SWAP NECESSARY
-            // WHICH CHILD VALUE DO WE SWAP WITH
-            if (leftIdx == this.heap.length - 1) {
-                var temp = this.heap[leftIdx];
-                this.heap[leftIdx] = this.heap[index];
-                this.heap[index] = temp;
-                index = leftIdx;
-            }        // LOGIC FOR THE ACTUAL SWAP IF NECESSARY
-            else {
+            if (this.heap[index] > this.heap[leftIdx] || this.heap[index] > this.heap[rightIdx]) {
                 if (this.heap[leftIdx] < this.heap[rightIdx]) {
-                    var temp = this.heap[leftIdx];
-                    this.heap[leftIdx] = this.heap[index];
-                    this.heap[index] = temp;
+                    //Swap for the left value
+                    [this.heap[index], this.heap[leftIdx]] = [this.heap[leftIdx], this.heap[index]];
                     index = leftIdx;
-                } else {
-                    var temp = this.heap[rightIdx];
-                    this.heap[rightIdx] = this.heap[index];
-                    this.heap[index] = temp;
+                }
+                else {
+                    //Swap for the right value
+                    [this.heap[index], this.heap[rightIdx]] = [this.heap[rightIdx], this.heap[index]];
                     index = rightIdx;
                 }
-                // RESETING THE INDEXES FOR THE NEXT STEP OF SWAPS
-                leftIdx *= index;
-                rightIdx = leftIdx + 1;
             }
-
+            else {
+                break;
+            }
+            leftIdx = index * 2;
+            rightIdx = leftIdx + 1;
         }
         // RETURN THE MIN NUMBER
-        return this.heap.splice(index, 1);
+        return answer;
     }
 }
 
@@ -107,6 +101,10 @@ mh.insert(9);
 mh.insert(3);
 mh.insert(1);
 mh.insert(5);
+console.log(mh);
+console.log(mh.extract());
+console.log(mh);
+console.log(mh.extract());
 console.log(mh);
 console.log(mh.extract());
 console.log(mh);
