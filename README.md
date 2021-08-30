@@ -11,10 +11,11 @@ Please feel free to contact me if there's any issues.
 Have a good day!
 
 ## Chenxi Wang 
-* Pre bootcamp
-* Web fundamental
-* Python
-* Java
+* <a href="https://github.com/wang-chenxi/CodingDojoAssignments/tree/master/0.Pre_Bootcamp">Pre bootcamp</a>
+* <a href="https://github.com/wang-chenxi/CodingDojoAssignments/tree/master/1.Web_Fundamentals">Web fundamental</a>
+* <a href="https://github.com/wang-chenxi/CodingDojoAssignments/tree/master/2.Python">Python</a>
+* <a href="https://github.com/wang-chenxi/CodingDojoAssignments/tree/master/3.Java">Java</a>
+* <a href="https://github.com/wang-chenxi/CodingDojoAssignments/tree/master/4.MERN">MERN</a>
 
 <img width = 500px src="https://s3.amazonaws.com/rivera64/images/twitter-header-aesthetic-twitter-header-cute-twitter-headers2cgoenjp.jpg"
      alt="footer"/>
