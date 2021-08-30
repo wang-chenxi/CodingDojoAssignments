@@ -16,6 +16,7 @@ Have a good day!
 * <a href="https://github.com/wang-chenxi/CodingDojoAssignments/tree/master/2.Python">Python</a>
 * <a href="https://github.com/wang-chenxi/CodingDojoAssignments/tree/master/3.Java">Java</a>
 * <a href="https://github.com/wang-chenxi/CodingDojoAssignments/tree/master/4.MERN">MERN</a>
+* <a href="https://github.com/wang-chenxi/CodingDojoAssignments/tree/master/9.Algorithms">Algorithms</a>
 
 <img width = 500px src="https://s3.amazonaws.com/rivera64/images/twitter-header-aesthetic-twitter-header-cute-twitter-headers2cgoenjp.jpg"
      alt="footer"/>
