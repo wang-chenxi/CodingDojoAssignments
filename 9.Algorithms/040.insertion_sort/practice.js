@@ -70,7 +70,7 @@ function insertionSort(nums) {
 
 }
 
-console.log(insertionSort(numsRandomOrder));
+console.log("shifting", insertionSort(numsRandomOrder));
 
 //swaping solution
 
@@ -89,4 +89,4 @@ function insertion(nums) {
     return nums;
 }
 
-console.log(insertion(numsRandomOrder));
+console.log("swaping", insertion(numsRandomOrder));
