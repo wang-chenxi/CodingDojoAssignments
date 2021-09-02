@@ -73,7 +73,7 @@ const nums7 = [2, 1]
 function partition(nums = [], left = 0, right = nums.length - 1) {
     var pivot = nums[right];
     var i = left;
-    var j = right - 1;
+    var j = right;
     //pivot shouldn't be involved
     console.log(pivot)
     while (i < j) {
@@ -82,7 +82,7 @@ function partition(nums = [], left = 0, right = nums.length - 1) {
             i++;
         }
         //check j and stop if we find invalid elements
-        while ((i < j) && (nums[j >= pivot])) {
+        while ((i < j) && (nums[j] >= pivot)) {
             j--;
         }
         //swap the element if the condition is still true
@@ -95,13 +95,9 @@ function partition(nums = [], left = 0, right = nums.length - 1) {
         }
     }
     // bring the pivot back to the sorted array
-    if (pivot > nums[j]) {
+    if (j + 1 <= right) {
         var temp = nums[j + 1];
         nums[j + 1] = pivot;
-        nums[nums.length - 1] = temp;
-    } else {
-        var temp = nums[j - 1];
-        nums[j - 1] = pivot;
         nums[nums.length - 1] = temp;
     }
 

@@ -19,7 +19,7 @@ class PersonCard extends Component {
   render() {
     const { firstName, lastName, age, hairColor } = this.props;
     return (
-      <div className="card w-50 mb-5">
+      <div className="card mb-5">
         <h1>
           {firstName} {lastName}
         </h1>
