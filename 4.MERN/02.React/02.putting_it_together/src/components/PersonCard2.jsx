@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const PersonCard2 = (props) => {
   return (
-    <div className="card bg-dark text-light mb-5">
+    <div className="card bg-dark text-light mb-5 flex-1">
       <h1>
         {props.firstName} {props.lastName}
       </h1>

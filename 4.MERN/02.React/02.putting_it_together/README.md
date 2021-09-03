@@ -1,6 +1,8 @@
-https://login.codingdojo.com/m/130/6235/43911
+Hi there, I try to put every piece of assignment together since creating new react project takes huge resource. Thank you for your understanding.
 
-# Putting it Together
+# 1.Putting it Together
+
+https://login.codingdojo.com/m/130/6235/43911
 
 Using the same assignment as the Prop It Up assignment, create a birthday button that will increase one person's age by one.
 
@@ -8,9 +10,9 @@ Using the same assignment as the Prop It Up assignment, create a birthday button
 
 ================================================
 
-https://login.codingdojo.com/m/130/6335/50225
+# 2. Big Inversion
 
-# Big Inversion
+https://login.codingdojo.com/m/130/6335/50225
 
 Redo the Prop It Up assignment and turn the class components into functional components.
 
@@ -22,3 +24,10 @@ age
 hairColor
 Then, display four PersonCard components that show four different people, using props.
 <img src="Capture-2.PNG"/>
+
+# 3. Hook Form
+
+https://login.codingdojo.com/m/130/6335/45691
+
+Create a form like the following wireframe with a React Component and hooks. Then, show in real time, the data that is being inputted into the form below
+<img src="Capture-3.PNG"/>
