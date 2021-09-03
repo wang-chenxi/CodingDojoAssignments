@@ -4,6 +4,7 @@ import PersonCard from './components/PersonCard';
 import PersonCard2 from './components/PersonCard2';
 import HookForm from './components/HookForm';
 import ValidateForm from './components/ValidateForm';
+import TodoDisplay from './components/TodoDisplay';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <PersonCard2 firstName="Zhenglai" lastName="Liu" age={32} hairColor="brown" /></div>
         <HookForm />
         <ValidateForm />
+        <TodoDisplay />
       </fieldset>
     </div>
   );

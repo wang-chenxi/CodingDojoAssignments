@@ -74,36 +74,27 @@ function partition(nums = [], left = 0, right = nums.length - 1) {
     var pivot = nums[right];
     var i = left;
     var j = right;
-    //pivot shouldn't be involved
-    console.log(pivot)
     while (i < j) {
-        //always check i firstly and stop if we find invalid elements
-        while ((i < j) && (nums[i] < pivot)) {
+        // find the first invalid nums[i] from the left
+        while (i < j && nums[i] < pivot) {
             i++;
         }
-        //check j and stop if we find invalid elements
-        while ((i < j) && (nums[j] >= pivot)) {
+        // find the first invalid nums[j] from the right
+        while (i < j && nums[j] >= pivot) {
             j--;
         }
-        //swap the element if the condition is still true
-        if (i < j) {
-            var temp = nums[i];
-            nums[i] = nums[j];
-            nums[j] = temp;
-            i++;
-            j--;
-        }
-    }
-    // bring the pivot back to the sorted array
-    if (j + 1 <= right) {
-        var temp = nums[j + 1];
-        nums[j + 1] = pivot;
-        nums[nums.length - 1] = temp;
-    }
+        // swap nums[i] and nums[j]
+        var temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
 
-    //return the result
-    return nums;
+    }
+    // swap nums[i] and nums[right]
+    var temp = nums[i];
+    nums[i] = pivot;
+    nums[right] = temp;
 
+    return i;
 }
 
 console.log("nums1:", partition(nums1))
