@@ -59,3 +59,12 @@ Hint: When updating the state, make sure to send in a brand new object or array;
 
 <br/>
 <img src="Capture-5.PNG"/>
+
+# 6. Tabs
+
+https://login.codingdojo.com/m/130/6335/48418
+
+Develop a tabs component that will take in an array of items. Each item will have a label and a content property. When you click on each individual tab header, it should change the state of the tabs so that the correct content is displayed.
+
+<br/>
+<img src="Capture-6.PNG"/>

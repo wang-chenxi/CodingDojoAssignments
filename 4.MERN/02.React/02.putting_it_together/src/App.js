@@ -5,11 +5,12 @@ import PersonCard2 from './components/PersonCard2';
 import HookForm from './components/HookForm';
 import ValidateForm from './components/ValidateForm';
 import TodoDisplay from './components/TodoDisplay';
+import Tabs from './components/Tabs';
 
 function App() {
   return (
     <div className="App d-flex align-items-center justify-content-center">
-      <fieldset>
+      <fieldset className="d-flex flex-column gap-5">
         <h1 className="mb-3 text-success">Scroll down for latest assignments</h1>
         <div className="d-flex gap-3">
           <PersonCard firstName="Chenxi" lastName="Wang" age={30} hairColor="brown" />
@@ -21,6 +22,7 @@ function App() {
         <HookForm />
         <ValidateForm />
         <TodoDisplay />
+        <Tabs />
       </fieldset>
     </div>
   );
