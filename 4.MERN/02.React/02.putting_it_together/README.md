@@ -46,4 +46,5 @@ The passwords must match and be at least 8 characters.
 These messages can appear right when you render the page, and will disappear in real time.
 
 Hint: Use state and conditional rendering.
+<br/>
 <img src="Capture-4.PNG"/>
