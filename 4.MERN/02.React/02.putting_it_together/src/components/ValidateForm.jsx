@@ -11,58 +11,65 @@ const ValidateForm = () => {
 
   // use different name since we need to host it in a single change handler together with form's content update
   const [validation, setValidation] = useState({
-    validateFirstName: false,
-    validateLastName: false,
-    validateEmail: false,
-    validtePassword: false,
-    validateConfirmPassword: false,
+    validateFirstName: true,
+    validateLastName: true,
+    validateEmail: true,
+    validatePassword: true,
+    validateConfirmPassword: true,
   });
 
   //onChange cannot handle two functions since the second function will overwrite the first one, thus, we write both functions within a single event handler
   const changeHandler = (e) => {
     const { name, value } = e.target;
-    let validateFirstName = false;
-    let validateLastName = false;
-    let validateEmail = false;
-    let validatePassword = false;
-    let validateConfirmPassword = false;
+    //cannot set default value or it will be updated everytime calling changeHandler and the validation will not work correctly
+    // let validateFirstName;
+    // let validateLastName;
+    // let validateEmail;
+    // let validatePassword;
+    // let validateConfirmPassword;
     setForm({
       ...form,
       [name]: value,
     });
     // async function has delay on setState, thus, we use e.target to do the validation in realtime
-    if (e.target.name == "firstName" && e.target.value.length < 2) {
-      validateFirstName = true;
-    } else {
-      validateFirstName = false;
+    if (e.target.name == "firstName") {
+      if (e.target.value.length < 2) {
+        setValidation({ ...validation, validateFirstName: false });
+      } else {
+        setValidation({ ...validation, validateFirstName: true });
+      }
     }
-    if (e.target.name == "lastName" && e.target.value.length < 2) {
-      validateLastName = true;
-    } else {
-      validateLastName = false;
+
+    if (e.target.name == "lastName") {
+      if (e.target.value.length < 2) {
+        setValidation({ ...validation, validateLastName: false });
+      } else {
+        setValidation({ ...validation, validateLastName: true });
+      }
     }
-    if (e.target.name == "email" && e.target.value.length < 5) {
-      validateEmail = true;
-    } else {
-      validateEmail = false;
+    if (e.target.name == "email") {
+      if (e.target.value.length < 5) {
+        setValidation({ ...validation, validateEmail: false });
+      } else {
+        setValidation({ ...validation, validateEmail: true });
+      }
     }
-    if (e.target.name == "password" && e.target.value.length < 8) {
-      validatePassword = true;
-    } else {
-      validatePassword = false;
+
+    if (e.target.name == "password") {
+      if (e.target.value.length < 8) {
+        setValidation({ ...validation, validatePassword: false });
+      } else {
+        setValidation({ ...validation, validatePassword: true });
+      }
     }
-    if (e.target.name == "confirmPassword" && e.target.value != form.password) {
-      validateConfirmPassword = true;
-    } else {
-      validateConfirmPassword = false;
+
+    if (e.target.name == "confirmPassword") {
+      if (e.target.value != form.password) {
+        setValidation({ ...validation, validateConfirmPassword: false });
+      } else {
+        setValidation({ ...validation, validateConfirmPassword: true });
+      }
     }
-    setValidation({
-      validateFirstName,
-      validateLastName,
-      validateEmail,
-      validatePassword,
-      validateConfirmPassword,
-    });
   };
 
   return (
@@ -79,9 +86,9 @@ const ValidateForm = () => {
             name="firstName"
             onChange={changeHandler}
           />
-          {validation.validateFirstName ? (
+          {validation.validateFirstName ? null : (
             <p className="text-light">2 characters at least</p>
-          ) : null}
+          )}
         </div>
         <div className="mb-3">
           <label for="lastName" className="form-label">
@@ -93,9 +100,9 @@ const ValidateForm = () => {
             name="lastName"
             onChange={changeHandler}
           />
-          {validation.validateLastName ? (
+          {validation.validateLastName ? null : (
             <p className="text-light">2 characters at least</p>
-          ) : null}
+          )}
         </div>
         <div className="mb-3">
           <label for="email" className="form-label">
@@ -107,9 +114,9 @@ const ValidateForm = () => {
             name="email"
             onChange={changeHandler}
           />
-          {validation.validateEmail ? (
+          {validation.validateEmail ? null : (
             <p className="text-light">5 characters at least</p>
-          ) : null}
+          )}
         </div>
         <div className="mb-3">
           <label for="paswsword" className="form-label">
@@ -121,9 +128,9 @@ const ValidateForm = () => {
             name="password"
             onChange={changeHandler}
           />
-          {validation.validatePassword ? (
+          {validation.validatePassword ? null : (
             <p className="text-light">8 characters at least</p>
-          ) : null}
+          )}
         </div>
         <div className="mb-3">
           <label for="confirmPaswsword" className="form-label">
@@ -135,9 +142,9 @@ const ValidateForm = () => {
             name="confirmPassword"
             onChange={changeHandler}
           />
-          {validation.validateConfirmPassword ? (
+          {validation.validateConfirmPassword ? null : (
             <p className="text-light">must match with password</p>
-          ) : null}
+          )}
         </div>
       </form>
     </div>
