@@ -35,32 +35,7 @@ const expected2 = [1, 3, 4, 9, 12, 13, 17, 21, 27];
 const nums3 = [11, 8, 14, 3, 3, 3, 6, 2, 7];
 const expected3 = [2, 3, 3, 6, 7, 8, 11, 14];
 
-function partition(nums = [], left = 0, right = nums.length - 1) {
-    var pivot = nums[right];
-    var i = left;
-    var j = right;
-    while (i < j) {
-        // find the first invalid nums[i] from the left
-        while (i < j && nums[i] < pivot) {
-            i++;
-        }
-        // find the first invalid nums[j] from the right
-        while (i < j && nums[j] >= pivot) {
-            j--;
-        }
-        // swap nums[i] and nums[j]
-        var temp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = temp;
 
-    }
-    // swap nums[i] and nums[right]
-    var temp = nums[i];
-    nums[i] = pivot;
-    nums[right] = temp;
-
-    return i;
-}
 
 /**
  * Recursively sorts the given array in-place by mutating the array.
@@ -74,13 +49,27 @@ function partition(nums = [], left = 0, right = nums.length - 1) {
  *    given array being processed.
  * @returns {Array<number>} The given array after being sorted.
  */
-function quickSort(nums = [], left = 0, right = nums.length - 1) {
+function partition(arr, low, high) {
+    let pivot = arr[low];
+    let i = 1
+}
 
-    if (left >= right) return;
-    var M = partition(nums, left, right);
-    quickSort(nums, left, M - 1);
-    quickSort(nums, M + 1, right);
+/* The main function that
+   implements QuickSort
+arr[] --> Array to be sorted,
+low --> Starting index,
+high --> Ending index */
+function quickSort(arr, low, high) {
+    if (low < high) {
+        /* pi is partitioning index,
+        arr[p] is now at right place */
+        let pi = partition(arr, low, high);
 
+        // Separately sort elements before
+        // partition and after partition
+        quickSort(arr, low, pi);
+        quickSort(arr, pi + 1, high);
+    }
 }
 
 console.log(quickSort(nums1))
