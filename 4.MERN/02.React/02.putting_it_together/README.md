@@ -69,16 +69,52 @@ Develop a tabs component that will take in an array of items. Each item will hav
 <br/>
 <img src="Capture-6.PNG"/>
 
-# 7. Navbar context
+# 7. Coin Flipping
 
-https://login.codingdojo.com/m/130/6335/45693
+https://login.codingdojo.com/m/130/6322/48591
 
-Create a React project that has a navbar with a message that says the user's name ("Hi, _some_name_here_!"). In the body of the page, have an input where the user can dynamically change the name in the navbar. You will need to create the following components:
+Let's say we have a function that simulates flipping a coin...
 
-Form.js: This component should actually hold the input field.
-FormWrapper.js: This component should only wrap the Form Component as its child. This is to illustrate that you can use nested components with context without passing down props.
-Navbar.js: This component should be your navbar which contains the greeting.
-Wrapper.js: This component should wrap the Navbar and the FormWrapper components (and will access useState).
-You will also need to create the context object.
+```
+function tossCoin() {
+    return Math.random() > 0.5 ? "heads" : "tails";
+}
+```
 
-Your App.js function should look something like this (note that Navbar and FormWrapper don't take in any props):
+And we want to use it in a function that sees how long it will take to have a coin land on "heads" five times in a row.
+
+```
+function fiveHeadsSync() {
+    let headsCount = 0;
+    let attempts = 0;
+    while(headsCount < 5) {
+        attempts++;
+        let result = tossCoin();
+        console.log(`${result} was flipped`);
+        if(result === "heads") {
+            headsCount++;
+        } else {
+            headsCount = 0;
+        }
+    }
+    return `It took ${attempts} tries to flip five "heads"`;
+}
+console.log( fiveHeadsSync() );
+console.log( "This is run after the fiveHeadsSync function completes" );
+```
+
+This will take an indeterminate amount of time. If we run the synchronous function above, it will prevent any code that comes after from running while this is taking place.
+
+Your mission is to rewrite the above function using Promises. Make sure your fiveHeads function will call the resolve function when the coin has flipped "heads" five times in a row.
+
+```
+function fiveHeads() {
+    return new Promise( (resolve, reject) => {
+        // your code here!
+    });
+}
+fiveHeads()
+    .then( res => console.log(res) )
+    .catch( err => console.log(err) );
+console.log( "When does this run now?" );
+```

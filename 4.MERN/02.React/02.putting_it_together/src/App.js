@@ -6,6 +6,7 @@ import HookForm from './components/HookForm';
 import ValidateForm from './components/ValidateForm';
 import TodoDisplay from './components/TodoDisplay';
 import Tabs from './components/Tabs';
+import CoinFlipping from './components/CoinFlipping';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <ValidateForm />
         <TodoDisplay />
         <Tabs />
+        <CoinFlipping />
       </fieldset>
     </div>
   );
