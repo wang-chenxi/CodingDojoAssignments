@@ -68,8 +68,8 @@ const numsA1 = [1, 2, 2, 2, 7];
 const numsB1 = [2, 2, 6, 6, 7];
 //const expected1 = [1, 2, 2, 2, 6, 6, 7];
 
-const numsA2 = [1, 2, 2, 2, 7, 10, 15, 20];
-const numsB2 = [2, 2, 6, 6, 7];
+const numsA2 = [7, 10, 15, 20];
+const numsB2 = [6, 7];
 //const expected2 = [1, 2, 2, 2, 6, 6, 7, 10, 15, 20];
 /* 
   Explanation: Every int from each set is included in the result, for dupes, like 2, include it 3 times,
@@ -91,26 +91,39 @@ const numsB2 = [2, 2, 6, 6, 7];
  *    not the combined amount from both sets.
  */
 function orderedMultisetUnion(sortedA, sortedB) {
-    var result = sortedB;
-    var i = 0;//pointer of A
-    var j = 0;//pointer of result
-    while (i < sortedA.length) {
-        while (sortedA[i] == result[j] && i < sortedA.length) {
-            i++;
-            j++;
-        }
+    let a = 0;
+    let b = 0;
+    let arr = [];
 
-        while (sortedA[i] != result[j] && i < sortedA.length) {
-            result.push(sortedA[i]);
-            i++;
-        }
-
-        while (result[j] == result[j - 1]) {
-            j++;
+    // compare the arrays while both arrays are not at the end
+    while (a < sortedA.length && b < sortedB.length) {
+        // number in sortedA < sortedB
+        if (sortedA[a] < sortedB[b]) {
+            arr.push(sortedA[a]);
+            a++;
+            // number in both array is the same, copy either number, move both index
+        } else if (sortedA[a] == sortedB[b]) {
+            arr.push(sortedA[a]);
+            a++;
+            b++;
+            // number in sortedB < number in sortedA
+        } else {
+            arr.push(sortedB[b]);
+            b++;
         }
     }
 
-    return result.sort()
+    while (a < sortedA.length) {
+        arr.push(sortedA[a]);
+        a++;
+    }
+
+    while (b < sortedB.length) {
+        arr.push(sortedB[b]);
+        b++;
+    }
+    return arr;
+
 }
 
 console.log(orderedMultisetUnion(numsA2, numsB2))
