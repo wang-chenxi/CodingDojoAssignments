@@ -119,6 +119,9 @@ fiveHeads()
 console.log( "When does this run now?" );
 ```
 
+<br/>
+<img src="Capture-7.PNG"/>
+
 # 8. Pokemon API
 
 https://login.codingdojo.com/m/130/6322/44711
