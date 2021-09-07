@@ -7,6 +7,7 @@ import ValidateForm from './components/ValidateForm';
 import TodoDisplay from './components/TodoDisplay';
 import Tabs from './components/Tabs';
 import CoinFlipping from './components/CoinFlipping';
+import PokemonAPI from './components/PokemonAPI';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <TodoDisplay />
         <Tabs />
         <CoinFlipping />
+        <PokemonAPI />
       </fieldset>
     </div>
   );

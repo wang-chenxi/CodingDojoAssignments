@@ -118,3 +118,12 @@ fiveHeads()
     .catch( err => console.log(err) );
 console.log( "When does this run now?" );
 ```
+
+# 8. Pokemon API
+
+https://login.codingdojo.com/m/130/6322/44711
+
+Using the previous lesson as a starting point, create a React project that simply has a button with the text "Fetch Pokemon".
+
+<br/>
+<img src="Capture-8.PNG"/>
