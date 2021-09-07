@@ -10,9 +10,7 @@ const PokemonAPI = () => {
   return (
     <div>
       <h1>Pokemon API</h1>
-      <button className="btn btn-light" onClick={pokemonCall}>
-        FetchPokemon
-      </button>
+      <button onClick={pokemonCall}>FetchPokemon</button>
       {state ? (
         state.map((pokemon) => <p>{pokemon.name}</p>)
       ) : (

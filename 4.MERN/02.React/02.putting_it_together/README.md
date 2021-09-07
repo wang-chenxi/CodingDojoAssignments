@@ -127,3 +127,12 @@ Using the previous lesson as a starting point, create a React project that simpl
 
 <br/>
 <img src="Capture-8.PNG"/>
+
+# 9. Axios Pokemon API
+
+https://login.codingdojo.com/m/130/6322/48250
+
+Redo the previous assignment using axios. Using the previous lesson as a starting point, create a React project that simply has a button with the text "Fetch Pokemon".
+
+<br/>
+<img src="Capture-9.PNG"/>

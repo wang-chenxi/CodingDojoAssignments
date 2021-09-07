@@ -8,6 +8,7 @@ import TodoDisplay from './components/TodoDisplay';
 import Tabs from './components/Tabs';
 import CoinFlipping from './components/CoinFlipping';
 import PokemonAPI from './components/PokemonAPI';
+import AxiosPokemonAPI from './components/AxiosPokemonAPI';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Tabs />
         <CoinFlipping />
         <PokemonAPI />
+        <AxiosPokemonAPI />
       </fieldset>
     </div>
   );
