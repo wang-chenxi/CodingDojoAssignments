@@ -117,19 +117,35 @@ function symmetricDifferences(numsA, numsB) {
   var result = []
   var i = 0;
   var j = 0;
-  // while (i < numsA.length || j < numsB.length) {
-  //   while (result[result.length - 1] >= numsA[i] && i < numsA.length) {
-  //     i++;
-  //   }
-  //   while (result[result.length - 1] >= numsB[j] && j < numsB.length) {
-  //     j++;
-  //   }
-  //   result.push(numsA[i]);
-  //   i++;
-  //   result.push(numsB[j]);
-  //   j++;
-
-  // }
+  while (i < numsA.length) {
+    if (result[result.length - 1] != numsA[i]) {
+      result.push(numsA[i]);
+    }
+    i++;
+  }
+  var z = 0;
+  while (j < numsB.length && z < result.length) {
+    while (numsB[j] == result[z] && j < numsB.length && z < result.length) {
+      j++;
+      z++;
+    }
+    while (result[z] < numsB[j] && j < numsB.length && z < result.length) {
+      z++;
+    }
+    while (result[z] > numsB[j] && numsB[j] != result[result.length - 1] && j < numsB.length && z < result.length) {
+      result.push(numsB[j]);
+      j++;
+    }
+    while (numsB[j] == result[result.length - 1] && j < numsB.length && z < result.length) {
+      j++;
+    }
+  }
+  while (j < numsB.length) {
+    if (result[result.length - 1] != numsB[j]) {
+      result.push(numsB[j]);
+    }
+    j++;
+  }
   return result;
 }
 
