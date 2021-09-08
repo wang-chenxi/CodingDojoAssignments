@@ -9,6 +9,7 @@ import Tabs from './components/Tabs';
 import CoinFlipping from './components/CoinFlipping';
 import PokemonAPI from './components/PokemonAPI';
 import AxiosPokemonAPI from './components/AxiosPokemonAPI';
+import RoutingPractice from './components/RoutingPractice';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <CoinFlipping />
         <PokemonAPI />
         <AxiosPokemonAPI />
+        <RoutingPractice />
       </fieldset>
     </div>
   );
