@@ -100,7 +100,7 @@ function findConsqSums2(nums, targetSum) {
   for (let i = 0; i < nums.length; i++) {
     sum = 0;
     idx = i;
-    while (sum <= targetSum) {
+    while ((targetSum >= 0 && sum <= targetSum) || (targetSum < 0 && sum >= targetSum)) {
       sum += nums[idx];
       if (sum === targetSum) {
         results.push(nums.slice(i, idx + 1));
@@ -112,3 +112,5 @@ function findConsqSums2(nums, targetSum) {
 }
 
 console.log(findConsqSums2(nums1, sum1))
+console.log(findConsqSums2(nums2, sum2))
+console.log(findConsqSums2(nums3, sum3))
