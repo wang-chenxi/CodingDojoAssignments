@@ -1,0 +1,14 @@
+Postman + Pokemon
+https://login.codingdojo.com/m/130/6426/45752 
+
+With what we just learned, let's go ahead and use Postman with the Pokemon API. Use Postman to perform 5 different GET requests to retrieve 5 different Pokemon of your choice. Here is a link to the Pokemon API DOCS.
+
+For instance if we want to find a Pokemon named "Bulbasaur" we could make a request like this.
+
+Make 5 different GET requests to retrieve 5 different pokemon
+
+https://pokeapi.co/api/v2/?id=25
+https://pokeapi.co/api/v2/?name=Pikachu
+https://pokeapi.co/api/v2/ability/
+https://pokeapi.co/api/v2/?name=ivysaur
+https://pokeapi.co/api/v2/?id=30
