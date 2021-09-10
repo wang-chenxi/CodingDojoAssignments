@@ -53,5 +53,6 @@ Create an api route "/api/user/company" that returns both a new user and a new c
 Run your server.js file using nodemon
 
 Using Postman, test your new GET routes
+<br/>
 <img src="Capture.PNG">
 <img src="Capture-1.PNG">
