@@ -39,11 +39,15 @@ db.students.find({lucky_number:{$lt:7}}&&{lucky_number:{$gt:3}}).pretty()
 
 ## Add a field to each student collection called 'interests' that is an ARRAY. It should contain the following entries: 'coding', 'brunch', 'MongoDB'. Do this in ONE operation.
 
-db.students.update({},{$push:{interests:['coding','brunch','MongoDB']}})
+db.students.update({},{$push:{interests:'coding','brunch','MongoDB'}})
 
 ## Add some unique interests for each particular student into each of their interest arrays.
 
+db.students.update({name:"Chenxi"},{$push:{interests:'dance'}})
+
 ## Add the interest 'taxes' into someone's interest array.
+
+db.students.update({name:"Richard"},{$push:{interests:'dance'}})
 
 ## Remove the 'taxes' interest you just added.
 
