@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
-const Form = () => {
+const Form = ({ onCreateNewProduct }) => {
   const history = useHistory();
   const [formState, setFormState] = useState({
     title: "",
@@ -11,7 +11,7 @@ const Form = () => {
   });
 
   const [validState, setValidState] = useState({});
-
+  //const [state, setState] = useState();
   const changeHandler = (e) => {
     const { name, value } = e.target;
     setFormState({
@@ -22,15 +22,13 @@ const Form = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    axios
-      .post("http://localhost:8000/api/products", formState)
-      .then((res) => {
+    onCreateNewProduct(formState)
+      .then(() => {
         setFormState({
           title: "",
           price: 0,
           description: "",
         });
-        history.push("/");
       })
       .catch((err) => {
         // console.log("CATCH: ", err.response.data)
