@@ -5,6 +5,7 @@ module.exports.test = (req, res) => {
 }
 
 // CREATE
+//important to set up the status 400 in catch
 module.exports.newProduct = (req, res) => {
     Product.create(req.body)
         .then(newProduct => res.json(newProduct))
@@ -27,5 +28,19 @@ module.exports.oneProduct = (req, res) => {
 }
 
 // UPDATE
+//important to set up the status 400 in catch
+module.exports.updateProduct = (req, res) => {
+    const { id } = req.params
+    Product.findOneAndUpdate({ _id: id }, req.body, { new: true, runValidators: true })
+        .then(updatedProduct => res.json(updatedProduct))
+        .catch(err => res.status(400).json(err))
+}
 
 // DELETE
+
+module.exports.deleteProduct = (req, res) => {
+    const { id } = req.params
+    Product.deleteOne({ _id: id })
+        .then(confirmation => res.json(confirmation))
+        .catch(err => res.status(400).json(err))
+}

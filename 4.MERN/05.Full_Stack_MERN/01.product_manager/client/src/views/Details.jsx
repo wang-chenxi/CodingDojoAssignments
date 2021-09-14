@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const Details = () => {
   const { id } = useParams();
+  const history = useHistory();
   const [productState, setProductState] = useState(null);
 
   useEffect(() => {
@@ -13,6 +14,13 @@ const Details = () => {
       .then((res) => setProductState(res.data))
       .catch((err) => console.log(err));
   }, []);
+
+  const deleteHandler = () => {
+    axios
+      .delete(`http://localhost:8000/api/${id}`)
+      .then((res) => history.push("/"))
+      .catch((err) => console.log(err));
+  };
 
   return (
     <>
@@ -25,6 +33,17 @@ const Details = () => {
       ) : (
         <h1>Loading....</h1>
       )}
+      <br />
+      <Link
+        to={"/" + id + "/edit"}
+        className="btn btn-warning"
+        style={{ "margin-right": "5px" }}
+      >
+        Edit
+      </Link>
+      <div className="btn btn-warning" onClick={deleteHandler}>
+        Delete
+      </div>
       <br />
       <Link to={"/"} className="btn btn-primary">
         Back to dashboard

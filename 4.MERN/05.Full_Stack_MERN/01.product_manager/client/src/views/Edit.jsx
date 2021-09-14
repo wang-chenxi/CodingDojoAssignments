@@ -1,14 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams, useHistory } from "react-router-dom";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
 
-const Form = () => {
+const Edit = () => {
+  const { id } = useParams();
   const history = useHistory();
-  const [formState, setFormState] = useState({
-    title: "",
-    price: 0,
-    description: "",
-  });
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8000/api/${id}`)
+      .then((res) => setFormState(res.data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  const [formState, setFormState] = useState({});
 
   const [validState, setValidState] = useState({});
 
@@ -23,14 +28,9 @@ const Form = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8000/api/products", formState)
+      .put(`http://localhost:8000/api/${id}`, formState)
       .then((res) => {
-        setFormState({
-          title: "",
-          price: 0,
-          description: "",
-        });
-        history.push("/");
+        history.push(`/${id}`);
       })
       .catch((err) => {
         // console.log("CATCH: ", err.response.data)
@@ -39,14 +39,14 @@ const Form = () => {
         for (let [key, value] of Object.entries(errors)) {
           errorObj[key] = value.message;
         }
-        console.log(errorObj);
         setValidState(errorObj);
       });
   };
 
   return (
-    <div>
-      <form onSubmit={submitHandler} className="form">
+    <>
+      <h1>Edit the Product</h1>
+      <form onSubmit={submitHandler}>
         <p className="form-control">
           Title:
           <input
@@ -86,12 +86,12 @@ const Form = () => {
             <p style={{ color: "red" }}>{validState.description}</p>
           ) : null}
         </p>
-        <button type="submit" className="btn btn-primary form-control">
-          Create a New Product
+        <button type="submit" className="btn btn-primary">
+          Update
         </button>
       </form>
-    </div>
+    </>
   );
 };
 
-export default Form;
+export default Edit;

@@ -4,6 +4,7 @@ import './App.css';
 
 import Details from './views/Details';
 import Dashboard from './views/Dashboard';
+import Edit from './views/Edit';
 
 
 function App() {
@@ -18,6 +19,9 @@ function App() {
               </Route>
               <Route exact path="/:id">
                 <Details />
+              </Route>
+              <Route exact path="/:id/edit">
+                <Edit />
               </Route>
             </Switch>
           </BrowserRouter>

@@ -32,3 +32,23 @@ Continue from the previous assignment. On the main page, below the product form,
 
 <img src="output/Capture.PNG">
 <img src="output/Capture-1.PNG">
+
+# Product Manager (Part III)
+
+https://login.codingdojo.com/m/130/6429/48236
+
+Update Product Manager so that you can update and delete your products.
+
+1. Add the route localhost:3000/:id/edit that will include an autofilled form to edit a given product.
+
+2. Add a delete button in the List component as well as the detail component that will delete the product from the database
+
+3. After you delete the product from the Detail component, redirect to the main view
+
+4. After you delete the product from the main view, update the DOM so that the product is removed.
+
+<br/>
+
+<img src="output/Capture-2.PNG">
+<img src="output/Capture-3.PNG">
+<img src="output/Capture-4.PNG">
