@@ -4,7 +4,7 @@ import axios from "axios";
 const Form = () => {
   const [formState, setFormState] = useState({
     title: "",
-    price: -1,
+    price: 0,
     description: "",
   });
 
@@ -46,14 +46,26 @@ const Form = () => {
       <form onSubmit={submitHandler} className="form">
         <p className="form-control">
           Title:
-          <input type="text" name="title" id="" onChange={changeHandler} />
+          <input
+            type="text"
+            name="title"
+            id=""
+            onChange={changeHandler}
+            value={formState.title}
+          />
           {validState.title ? (
             <p style={{ color: "red" }}>{validState.title}</p>
           ) : null}
         </p>
         <p className="form-control">
           Price:
-          <input type="number" name="price" id="" onChange={changeHandler} />
+          <input
+            type="number"
+            name="price"
+            id=""
+            onChange={changeHandler}
+            value={formState.price}
+          />
           {validState.price ? (
             <p style={{ color: "red" }}>{validState.price}</p>
           ) : null}
@@ -65,13 +77,14 @@ const Form = () => {
             name="description"
             id=""
             onChange={changeHandler}
+            value={formState.description}
           />
           {validState.description ? (
             <p style={{ color: "red" }}>{validState.description}</p>
           ) : null}
         </p>
         <button type="submit" className="btn btn-primary form-control">
-          Create
+          Create a New Product
         </button>
       </form>
     </div>

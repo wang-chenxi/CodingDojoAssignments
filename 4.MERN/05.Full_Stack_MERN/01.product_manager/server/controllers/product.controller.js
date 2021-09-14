@@ -12,6 +12,19 @@ module.exports.newProduct = (req, res) => {
 }
 
 // READ
+module.exports.allProducts = (req, res) => {
+    Product.find()
+        .then(allProducts => res.json(allProducts))
+        .catch(err => res.json(err))
+}
+
+module.exports.oneProduct = (req, res) => {
+    const { id } = req.params
+    Product.findOne({ _id: id })
+        .then(oneProduct => res.json(oneProduct))
+        .catch(err => res.json(err))
+
+}
 
 // UPDATE
 
