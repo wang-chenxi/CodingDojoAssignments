@@ -23,7 +23,8 @@ mongoose.connect("mongodb://localhost/your_db_name", {
    `npx create-react-app client`
 6. in the **client** folder, run the ternimal with command:
    `yarn add react-router-dom axios`
-7. terminal at **client**=>boost the front-end server with `yarn run start`
-8. terminal at **server**=>boost the back-end server with `nodemon index.js`
+7. in the **src** folder, create 1) **views** folder and 2) **components** folder. **all the jsx file within the two folder should be with Capital naming**, such as `View.jsx` and `Component.jsx`. If you need to display some pics, store them in the **public** => **image** folder, see an example there => https://github.com/wang-chenxi/CodingDojoAssignments/tree/master/4.MERN/02.React/03.luke_apiwalker
+8. terminal at **client**=>boost the front-end server with `yarn run start`
+9. terminal at **server**=>boost the back-end server with `nodemon index.js`
 
 Happy Hack!
