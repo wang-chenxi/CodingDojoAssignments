@@ -5,7 +5,7 @@
 3. in the **server** folder, run the ternimal with command:
    `npm init -y`
    `yarn add express mongoose cors`
-4. create **index.js**, **config** folder=>**mongoose.config.js**, **models** folder with **name.model.js** files, **controllers** folder with **name.controller.js** files, **routes** folder with **name.route.js** files, and below is the template of mongoosee config:
+4. create 1) **index.js**, 2) **config** folder=>**mongoose.config.js**, 3) **models** folder with **name.model.js** files, 4) **controllers** folder with **name.controller.js** files, 5) **routes** folder with **name.route.js** files, and below is the template of mongoosee config:
 
 ```
 const mongoose = require("mongoose")
