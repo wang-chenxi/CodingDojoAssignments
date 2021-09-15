@@ -5,7 +5,20 @@
 3. in the **server** folder, run the ternimal with command:
    `npm init -y`
    `yarn add express mongoose cors`
-4. create **index.js**
+4. create **index.js**, **config** folder=>**mongoose.config.js**, **models** folder with **name.model.js** files, **controllers** folder with **name.controller.js** files, **routes** folder with **name.route.js** files, and below is the template of mongoosee config:
+
+```
+const mongoose = require("mongoose")
+
+mongoose.connect("mongodb://localhost/your_db_name", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
+    .then(() => console.log("CONNECTED TO FULL MERN DEMO DB"))
+    .catch(err => console.log("ERROR: ", err))
+
+```
+
 5. back to parent folder **name of app**, run the ternimal with command:
    `npx create-react-app client`
 6. in the **client** folder, run the ternimal with command:
