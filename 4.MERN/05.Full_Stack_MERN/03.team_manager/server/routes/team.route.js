@@ -1,11 +1,10 @@
-const mongoose = require("mongoose")
+const TeamController = require("../controllers/team.controller")
 
-const TeamSchema = mongoose.Schema({
-    name: {
-        type: String,
-        required: [true, "Name must be provided"],
-        minlength: [3, "Name must be at least 3 characters long"]
-    }
-}, { timestamps: true })
 
-module.exports.Team = mongoose.model("Team", TeamSchema)
+module.exports = app => {
+    app.get("/api/teams/test", TeamController.test),
+        app.post("/api/teams", TeamController.newTeam),
+        app.get("/api/teams", TeamController.allTeams),
+        app.put("/api/:id", TeamController.updateTeam),
+        app.delete("/api/:id", TeamController.deleteTeam)
+}
