@@ -6,10 +6,6 @@ import Subnav from "../components/Subnav";
 const Dashboard = () => {
   const [teams, setTeams] = useState([]);
   const [state, setState] = useState(false);
-  const [popup, setPopup] = useState({
-    show: false, // initial values set to false and null
-    id: null,
-  });
 
   useEffect(() => {
     axios
@@ -17,8 +13,6 @@ const Dashboard = () => {
       .then((res) => setTeams(res.data))
       .catch((err) => console.log(err));
   }, [state]);
-
-  // This will show the Cofirmation Box
 
   const deleteHandler = (id) => {
     if (window.confirm("Are you sure")) {
