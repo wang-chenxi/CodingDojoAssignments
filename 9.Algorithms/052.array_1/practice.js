@@ -81,3 +81,40 @@ const expected6 = false;
  * @returns {boolean} Whether the given str can be rearranged into a palindrome.
  */
 function canStringBecomePalindrome(str) { }
+
+var islandPerimeter = function (grid) {
+    var side = new Set();
+    console.log(grid.length)
+    for (var i = 0; i < grid.length; i++) {
+        for (var j = 0; j < grid[i].length; j++) {
+            if (grid[i][j] == 1) {
+                var hor = j.toString() + (j + 1).toString();
+                var ver = i.toString() + (i + 1).toString();
+                console.log(hor, ver)
+                if (side.has(hor + ":" + i.toString())) {
+                    side.delete(hor + ":" + i.toString())
+                }
+                else {
+                    side.add(hor + ":" + i.toString());
+                }
+                if (side.has(hor + ":" + (i + 1).toString())) {
+                    side.delete(hor + ":" + (i + 1).toString())
+                } else {
+                    side.add(hor + ":" + (i + 1).toString());
+                }
+                if (side.has(j.toString() + ":" + ver)) {
+                    side.delete(j.toString() + ":" + ver)
+                } else {
+                    side.add(j.toString() + ":" + ver);
+                }
+                if (side.has((j + 1).toString() + ":" + ver)) {
+                    side.delete((j + 1).toString() + ":" + ver)
+                } else {
+                    side.add((j + 1).toString() + ":" + ver);
+                }
+            }
+        }
+    }
+    for (let [key, value] of side.entries()) console.log([key, value])
+    return side.size
+};
